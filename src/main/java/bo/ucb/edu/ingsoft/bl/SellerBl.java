@@ -36,14 +36,6 @@ public class SellerBl {
 
     public SellerRequest create(SellerRequest sellerRequest, Transaction transaction){
 
-        /*
-        User user =new User();
-        user.setPassword(sellerRequest.getPassword());
-        user.setEmail(sellerRequest.getEmail());
-        user.setTransaction(transaction);
-
-        userDao.createUser(user);
-        int userId=transactionDao.getLastInsertId();*/
         Seller seller = new Seller();
         Person person = new Person();
         person.setFirstName(sellerRequest.getFirstName());
