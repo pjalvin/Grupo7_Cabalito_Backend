@@ -2,7 +2,7 @@ spring:
   application:
     name: ingsoft
   datasource:
-    name: cabalito_db
+    name: db_cabalito
     platform: mysql
     url: jdbc:mysql://localhost:3306/cabalito_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
