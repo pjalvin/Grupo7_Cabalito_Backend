@@ -1,3 +1,11 @@
+drop database if exists db_cabalito;
+
+
+create database db_cabalito;
+
+
+use db_cabalito;
+
 CREATE TABLE brand (
     id_brand int NOT NULL AUTO_INCREMENT,
     brand varchar(50) NOT NULL,
