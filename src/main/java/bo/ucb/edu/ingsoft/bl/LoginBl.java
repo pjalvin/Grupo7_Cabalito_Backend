@@ -10,8 +10,10 @@ import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.util.JWTUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 @Service
@@ -53,6 +55,13 @@ public class LoginBl {
             throw new RuntimeException("Ya existe el usuario");
         }
     }
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    class SignInFailed extends RuntimeException {
+        public SignInFailed(String message) {
+            super(message);
+        }
+    }
+
     public UserRequest SignIn(UserRequest userRequest, Transaction transaction){
 
         UserRequest userInfo=loginDao.findByEmail(userRequest.getEmail());
@@ -67,11 +76,12 @@ public class LoginBl {
                 return userInfo;
             }
             else{
-                throw new RuntimeException("Error en las credenciales");
+
+                throw new SignInFailed("Credenciales incorrectas");
             }
         }
         else{
-            throw new RuntimeException("No existe el usuario");
+            throw new SignInFailed("No se encontró al usuario");
         }
     }
 }
