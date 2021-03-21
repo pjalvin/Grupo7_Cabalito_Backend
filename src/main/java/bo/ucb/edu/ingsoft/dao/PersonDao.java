@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PersonDao {
     public Person findByPersonId(Integer personId);
     public void createPerson(Person person);
-
+    public void updatePerson(Person person);
 }

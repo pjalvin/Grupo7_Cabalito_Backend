@@ -27,4 +27,11 @@ public class PersonBl {
         personDao.createPerson(person);
         return person;
     }
+    public Person update(Person person, Transaction transaction){
+        person.setTransaction(transaction);
+        personDao.updatePerson(person);
+        int personId=transactionDao.getLastInsertId();
+        person.setIdPerson(personId);
+        return person;
+    }
 }
