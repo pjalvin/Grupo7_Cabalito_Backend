@@ -1,3 +1,5 @@
+USE db_cabalito;
+
 INSERT INTO city VALUES
 (NULL,'La Paz',1,NOW(),1,'192.168.10.215',NOW()),
 (NULL,'Cochabamba',1,NOW(),1,'192.168.10.215',NOW()),
