@@ -30,9 +30,9 @@ public class IngsoftApplication {
 			http.csrf().disable()
 					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
-					//.antMatchers(HttpMethod.POST, "/user/signup").permitAll()
-					//.antMatchers(HttpMethod.POST, "/user/signin").permitAll()
-					//.antMatchers(HttpMethod.GET, "/image/**").permitAll()
+					.antMatchers(HttpMethod.POST, "/user/signup").permitAll()
+					.antMatchers(HttpMethod.POST, "/user/signin").permitAll()
+					.antMatchers(HttpMethod.GET, "/image/**").permitAll()
 					.anyRequest().authenticated();
 		}
 	}
