@@ -1,11 +1,8 @@
 package bo.ucb.edu.ingsoft.bl;
 
-import bo.ucb.edu.ingsoft.dao.PublicationDao;
-import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.ImagePublicationRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
+import bo.ucb.edu.ingsoft.dao.*;
+import bo.ucb.edu.ingsoft.dto.*;
+
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
