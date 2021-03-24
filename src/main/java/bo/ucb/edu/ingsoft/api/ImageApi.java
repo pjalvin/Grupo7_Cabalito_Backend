@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/image")
 public class ImageApi {
-    //private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
+
     private PublicationBl publicationBl;
     @Autowired
     public ImageApi(PublicationBl publicationBl) {

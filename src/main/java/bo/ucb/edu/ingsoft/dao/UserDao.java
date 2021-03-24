@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserDao {
     public User findByUserId(Integer userId);
     public void createUser(User user);
+    public void updateUser(User user);
 }

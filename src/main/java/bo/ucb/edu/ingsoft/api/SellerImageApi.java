@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/sellerImage")
 public class SellerImageApi {
-    //private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
+
     private SellerBl sellerBl;
 
     @Autowired

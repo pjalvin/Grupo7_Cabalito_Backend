@@ -25,7 +25,6 @@ import java.util.List;
 @RequestMapping(value = "/publications")
 public class PublicationApi {
 
-    //private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
     private PublicationBl publicationBl;
     @Autowired
     public PublicationApi(PublicationBl publicationBl) {
@@ -50,11 +49,6 @@ public class PublicationApi {
     public PublicationViewRequest SearchPublication(@RequestParam Integer idPublication){
         return publicationBl.publicationsView(idPublication);
     }
-
-    /*@RequestMapping(path = "paths", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PublicationSimpleRequest> PathsPublication(@RequestParam Integer idPublication){
-        return publicationBl.publicationsPaths(idPublication);
-    }*/
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 
