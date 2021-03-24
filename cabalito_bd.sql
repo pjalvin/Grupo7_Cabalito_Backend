@@ -174,11 +174,9 @@ CREATE TABLE seller (
     tx_update datetime NOT NULL,
     CONSTRAINT seller_pk PRIMARY KEY (id_seller)
 );
-
--- Table: user
 CREATE TABLE user (
     id_user int NOT NULL AUTO_INCREMENT,
-    password varchar(50) NOT NULL,
+    password char(64) NOT NULL,
     email varchar(100) NOT NULL,
     status tinyint NOT NULL,
     tx_date datetime NOT NULL,
