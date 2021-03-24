@@ -25,6 +25,7 @@ public class SellerApi {
     public SellerApi(SellerBl sellerBl){
         this.sellerBl = sellerBl;
     }
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SellerRequest findById( HttpServletRequest request) {
         UserUtil userUtil=new UserUtil();
