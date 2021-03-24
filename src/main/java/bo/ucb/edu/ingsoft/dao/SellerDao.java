@@ -14,5 +14,4 @@ public interface SellerDao {
     public UserRequest findByUserId(Integer userId);
     public void createSeller(Seller seller);
     public void updateImage(Seller seller);
-    public List<PublicationSimpleRequest> publications(Integer idSeller, Integer i, Integer n);
 }
