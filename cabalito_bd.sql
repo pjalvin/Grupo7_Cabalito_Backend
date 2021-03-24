@@ -100,7 +100,7 @@ CREATE TABLE h_seller (
 CREATE TABLE h_user (
     id_h_user int NOT NULL AUTO_INCREMENT,
     id_user int NOT NULL,
-    password varchar(50) NOT NULL,
+    password char(64) NOT NULL,
     email varchar(100) NOT NULL,
     status tinyint NOT NULL,
     tx_date datetime NOT NULL,
