@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping(value = "/user")
 public class LoginApi {
-    //private static final Logger LOGGER = LoggerFactory.getLogger(MechanicApi.class);
+
     private LoginBl loginBl;
     @Autowired
     public LoginApi(LoginBl loginBl){

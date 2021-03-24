@@ -6,6 +6,7 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 public class UserBl {
     private UserDao userDao;
     private TransactionDao transactionDao;
