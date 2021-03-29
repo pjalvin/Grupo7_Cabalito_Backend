@@ -51,6 +51,23 @@
         WHERE id_seller=#{idSeller} and
             status = 1
     </update>
+
+    <resultMap type="bo.ucb.edu.ingsoft.dto.ImagePublicationRequest" id="publicationPathsMap">
+        <result column="idImagePublication" property="idImagePublication"/>
+        <result column="path" property="path"/>
+    </resultMap>
+    <select id="publicationPaths" resultMap="publicationPathsMap">
+        SELECT
+        ipub.id_image_publication as idImagePublication,
+        ipub.path as path
+        FROM publication pub
+        INNER JOIN image_publication ipub on
+        pub.id_publication=ipub.id_publication
+        WHERE
+        pub.status=1
+        and ipub.status=1
+        AND pub.id_publication=#{idPublication}
+    </select>
     <resultMap type="bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest" id="publicationsMap">
         <result column="idPublication" property="idPublication"/>
         <result column="imagePath" property="imagePath"/>
