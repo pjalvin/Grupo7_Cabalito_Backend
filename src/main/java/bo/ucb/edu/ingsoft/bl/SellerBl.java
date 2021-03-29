@@ -39,6 +39,10 @@ public class SellerBl {
         return  sellerDao.findBySellerId(sellerId);
     }
 
+    public SellerRequest findSeller(Integer sellerId) {
+        return  sellerDao.findSeller(sellerId);
+    }
+
     public SellerRequest create(SellerRequest sellerRequest, Transaction transaction){
 
         Seller seller = new Seller();

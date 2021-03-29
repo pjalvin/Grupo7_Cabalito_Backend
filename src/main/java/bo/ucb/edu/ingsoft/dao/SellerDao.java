@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface SellerDao {
     public SellerRequest findBySellerId(Integer sellerId);
     public UserRequest findByUserId(Integer userId);
+    public SellerRequest findSeller(Integer userId);
+
     public void createSeller(Seller seller);
     public void updateSeller(Seller seller);
     public void updateImage(Seller seller);
