@@ -86,4 +86,8 @@ public class SellerBl {
         seller.setImagePath(nombre);
         sellerDao.updateImage(seller);
     }
+    public List<PublicationSimpleRequest> publications(Integer idSeller,Integer i,Integer n){
+        List<PublicationSimpleRequest> publications=sellerDao.publications(idSeller,i,n);
+        return publications;
+    }
 }
