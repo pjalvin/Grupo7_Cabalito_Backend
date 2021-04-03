@@ -51,7 +51,6 @@ public class PublicationApi {
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-
     public PublicationRequest create(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
