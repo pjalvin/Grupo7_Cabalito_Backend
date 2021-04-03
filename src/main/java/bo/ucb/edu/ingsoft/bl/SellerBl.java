@@ -90,4 +90,6 @@ public class SellerBl {
         List<PublicationSimpleRequest> publications=sellerDao.publications(idSeller,i,n);
         return publications;
     }
+
+
 }
