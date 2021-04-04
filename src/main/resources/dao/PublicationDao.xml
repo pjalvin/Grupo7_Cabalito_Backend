@@ -41,7 +41,26 @@
            where a.id_publication=#{idPublication}
            AND a.status=1
     </select>
-
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        UPDATE publication set
+        id_brand=#{idBrand},
+        id_color=#{idColor},
+        id_city=#{idCity},
+        title=#{title},
+        model=#{model},
+        door_number=#{doorNumber},
+        license_plate=#{licensePlate},
+        description=#{description},
+        motor=#{motor},
+        price=#{price},
+        date_publication=#{datePublication},
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate},
+        status=1
+        WHERE
+        id_publication=#{idPublication}
+    </update>
     <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Publication">
         UPDATE publication set
         status=#{status},
@@ -179,23 +198,3 @@
         </if>
     </select>
 </mapper>
-<update id="update" parameterType="bo.ucb.edu.ingsoft.model.Publication">
-        UPDATE publication set
-        id_brand=#{idBrand},
-        id_color=#{idColor},
-        id_city=#{idCity},
-        title=#{title},
-        model=#{model},
-        door_number=#{doorNumber},
-        license_plate=#{licensePlate},
-        description=#{description},
-        motor=#{motor},
-        price=#{price},
-        date_publication=#{datePublication},
-        tx_id_user=#{transaction.txIdUser},
-        tx_host=#{transaction.txHost},
-        tx_update=#{transaction.txUpdate},
-        status=1
-        WHERE
-        id_publication=#{idPublication}
-    </update>

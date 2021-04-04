@@ -26,4 +26,12 @@ public class UserBl {
         userDao.createUser(user);
         return user;
     }
+
+    public User update(User user, Transaction transaction){
+        user.setTransaction(transaction);
+        userDao.updateUser(user);
+        int userId=transactionDao.getLastInsertId();
+        user.setIdUser(userId);
+        return user;
+    }
 }

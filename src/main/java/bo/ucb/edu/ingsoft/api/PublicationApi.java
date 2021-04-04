@@ -59,6 +59,13 @@ public class PublicationApi {
         publicationBl.create(publicationRequest,transaction);
         return publicationRequest;
     }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        publicationBl.update(publicationRequest,transaction);
+        return publicationRequest;
+    }
     @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public String uploadImages(@RequestParam MultipartFile[] images, @RequestParam Integer idPublication, HttpServletRequest request){
         TransactionUtil transactionUtil=new TransactionUtil();

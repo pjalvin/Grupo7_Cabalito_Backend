@@ -65,6 +65,29 @@ public class PublicationBl {
         return publicationRequest;
     }
 
+    public PublicationRequest update(PublicationRequest publicationRequest, Transaction transaction){
+
+        Publication publication=new Publication();
+        publication.setIdPublication(publicationRequest.getIdPublication());
+        publication.setDescription(publicationRequest.getDescription());
+        publication.setDoorNumber(publicationRequest.getDoorNumber());
+        publication.setIdBrand(publicationRequest.getIdBrand());
+        publication.setIdCity(publicationRequest.getIdCity());
+        publication.setIdColor(publicationRequest.getIdColor());
+        publication.setIdSeller(publicationRequest.getIdSeller());
+        publication.setLicensePlate(publicationRequest.getLicensePlate());
+        publication.setTitle(publicationRequest.getTitle());
+        publication.setModel(publicationRequest.getModel());
+        publication.setMotor(publicationRequest.getMotor());
+        publication.setModel(publicationRequest.getModel());
+        publication.setPrice(publicationRequest.getPrice());
+        publication.setStatus(publicationRequest.getStatus());
+        publication.setTransaction(transaction);
+        publication.setDatePublication(new Date());
+        publicationDao.update(publication);
+        return publicationRequest;
+    }
+
     public boolean deleteImages(List<ImagePublicationRequest> imagesDelete, Transaction transaction){
         try{
             imagesDelete.forEach((image)->{
