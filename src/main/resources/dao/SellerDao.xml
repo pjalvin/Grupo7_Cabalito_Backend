@@ -96,3 +96,11 @@
 
     </select>
 </mapper>
+<select id="findByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserRequest">
+        SELECT
+               s.id_seller as idSeller
+        FROM seller s
+        WHERE
+            s.id_user = #{userId} and
+            s.status = 1
+    </select>
