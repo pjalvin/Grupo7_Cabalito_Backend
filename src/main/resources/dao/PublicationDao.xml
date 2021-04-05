@@ -101,12 +101,13 @@
                from city
                where city.status=1
     </select>
+
     <resultMap type="bo.ucb.edu.ingsoft.model.Brand" id="brandsMap">
         <result column="idBrand" property="idBrand"/>
         <result column="brand" property="brand"/>
     </resultMap>
     <select  id="brands" resultMap="brandsMap">
-        SELECT brand.id_brand idBrand,
+        SELECT brand.id_brand as idBrand,
                brand.brand
                from brand
                where brand.status=1
