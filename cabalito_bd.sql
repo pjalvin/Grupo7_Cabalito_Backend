@@ -217,3 +217,4 @@ ALTER TABLE seller ADD CONSTRAINT seller_user FOREIGN KEY seller_user (id_user)
     REFERENCES user (id_user);
 
 -- End of file.
+ALTER TABLE publication ADD FULLTEXT (title,description);

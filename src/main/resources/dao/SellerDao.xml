@@ -30,6 +30,14 @@
             u.status = 1 and
             p.status = 1
     </select>
+    <select id="findByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserRequest">
+        SELECT
+               s.id_seller as idSeller
+        FROM seller s
+        WHERE
+            s.id_user = #{userId} and
+            s.status = 1
+    </select>
     <update id="updateSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller SET
         status=1,image_path=#{imagePath}, tx_date=#{transaction.txDate},
@@ -84,15 +92,8 @@
             and publication.status=1
             and seller.status=1
         GROUP BY publication.id_publication
+        ORDER BY publication.date DESC
         LIMIT #{n} OFFSET #{i}
 
     </select>
 </mapper>
-<select id="findByUserId" resultType="bo.ucb.edu.ingsoft.dto.UserRequest">
-        SELECT
-               s.id_seller as idSeller
-        FROM seller s
-        WHERE
-            s.id_user = #{userId} and
-            s.status = 1
-    </select>

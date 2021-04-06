@@ -183,7 +183,8 @@
             AND publication.door_number=#{publicationRequest.doorNumber}
         </if>
         <if test="publicationRequest.title!=null and publicationRequest.idPublication==null">
-            AND publication.title=#{publicationRequest.title}
+            AND MATCH(title,description)
+            AGAINST(#{publicationRequest.title} IN BOOLEAN MODE )
         </if>
         <if test="publicationRequest.idPublication!=null">
             AND publication.id_publication=#{publicationRequest.idPublication}
@@ -194,6 +195,8 @@
         WHERE image_publication.id_publication=publication.id_publication
         AND publication.id_seller!=#{sellerId}
         )
+
+        ORDER BY publication.date DESC
         <if test="publicationRequest.idPublication==null">
             LIMIT #{n} OFFSET #{i}
         </if>
