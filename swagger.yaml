@@ -715,7 +715,7 @@ components:
       - id_door_number
       - id_model
       - id_publication
-      - id_seller
+      - id_sellerg
       - license_plate
       - price
       - status
