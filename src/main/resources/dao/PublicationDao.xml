@@ -53,7 +53,7 @@
         description=#{description},
         motor=#{motor},
         price=#{price},
-        date_publication=#{datePublication},
+        date=#{datePublication},
         tx_id_user=#{transaction.txIdUser},
         tx_host=#{transaction.txHost},
         tx_update=#{transaction.txUpdate},

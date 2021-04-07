@@ -50,7 +50,7 @@ public class PublicationBl {
         publication.setIdCity(publicationRequest.getIdCity());
         publication.setIdColor(publicationRequest.getIdColor());
         publication.setIdSeller(publicationRequest.getIdSeller());
-        publication.setLicensePlate(publicationRequest.getLicensePlate());
+        publication.setLicensePlate(publicationRequest.getLicensePlate().toUpperCase());
         publication.setTitle(publicationRequest.getTitle());
         publication.setModel(publicationRequest.getModel());
         publication.setMotor(publicationRequest.getMotor());
