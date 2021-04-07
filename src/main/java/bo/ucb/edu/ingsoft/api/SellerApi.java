@@ -2,7 +2,9 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.SellerBl;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
+import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
+import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
@@ -32,6 +34,12 @@ public class SellerApi {
         Integer sellerId=userUtil.getIdSeller();
         return sellerBl.findSellerById(sellerId);
     }
+    @RequestMapping(path = "/id",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public SellerRequest findByIdP(@RequestParam(required = true) Integer idSeller,
+                                           HttpServletRequest request){
+        return sellerBl.findSellerById(idSeller);
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public SellerRequest create(@RequestBody SellerRequest sellerRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();

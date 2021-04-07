@@ -96,4 +96,27 @@
         LIMIT #{n} OFFSET #{i}
 
     </select>
+    <select id="findBySellerIdP" resultType="bo.ucb.edu.ingsoft.dto.SellerRequest">
+        SELECT
+               s.id_seller as idSeller,
+               s.id_person as idPerson,
+               s.id_user as idUser,
+               u.password as password,
+               u.email as email,
+               p.first_name as firstName,
+               p.last_name as lastName,
+               p.phone_number as phoneNumber,
+               s.image_path as imagePath
+        FROM seller s
+        INNER JOIN user u on
+        s.id_user=u.id_user
+        INNER JOIN person p on
+        s.id_person=p.id_person
+        WHERE
+            s.id_seller = #{sellerId} and
+            s.status = 1 and
+            u.status = 1 and
+            p.status = 1
+    </select>
+
 </mapper>

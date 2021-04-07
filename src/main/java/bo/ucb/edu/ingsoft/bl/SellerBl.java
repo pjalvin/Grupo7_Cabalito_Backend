@@ -39,6 +39,10 @@ public class SellerBl {
         return  sellerDao.findBySellerId(sellerId);
     }
 
+    public SellerRequest findSellerByIdP(Integer sellerId) {
+        return  sellerDao.findBySellerIdP(sellerId);
+    }
+
     public SellerRequest findSeller(Integer sellerId) {
         return  sellerDao.findSeller(sellerId);
     }

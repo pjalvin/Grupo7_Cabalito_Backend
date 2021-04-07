@@ -12,7 +12,10 @@ import java.util.List;
 @Mapper
 public interface SellerDao {
     public SellerRequest findBySellerId(Integer sellerId);
-    public UserRequest findByUserId(Integer userId);
+    public UserRequest findByUserId(Integer sellerId);
+
+    public SellerRequest findBySellerIdP(Integer sellerId);
+
     public SellerRequest findSeller(Integer userId);
 
     public void createSeller(Seller seller);
