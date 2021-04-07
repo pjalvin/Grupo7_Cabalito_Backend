@@ -10,15 +10,19 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-  - url: https://cabalito.com/api
+- url: https://cabalito.com/api
 tags:
-  - name: seller
-    description: Seller user
+- name: Seller
+  description: Seller user
+- name: User
+  description: User login in app
+- name: Publication
+  description: User publications
 paths:
   /user/signup:
     post:
       tags:
-        - seller
+      - User
       summary: register a new user
       description: |
         register a new user to the DB
@@ -42,7 +46,7 @@ paths:
   /user/login:
     post:
       tags:
-        - seller
+      - User
       summary: login in app
       description: |
         login with email and password
@@ -64,47 +68,22 @@ paths:
         "403":
           description: Access token does not have the required scope.
   /seller:
-    get:
-      tags:
-        - seller
-      summary: get information from an user
-      description: |
-        get more information about the user
-      operationId: getSeller
-      parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
-        "400":
-          description: Invalid sellerId value.
     put:
       tags:
-        - seller
+      - Seller
       summary: edit seller information
       description: |
         You can change some information about your user account
       operationId: editSeller
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
       requestBody:
         content:
           aplication/json:
@@ -120,7 +99,7 @@ paths:
           description: Bad request.
     post:
       tags:
-        - seller
+      - Seller
       summary: register a new seller
       description: |
         register a new user
@@ -141,22 +120,48 @@ paths:
           description: Not authenticated.
         "403":
           description: Access token does not have the required scope.
+  /seller/{idSeller}:
+    get:
+      tags:
+      - Seller
+      summary: get information from an seller
+      description: |
+        get more information about the seller
+      operationId: getSellerById
+      parameters:
+      - name: idSeller
+        in: path
+        description: post seller id
+        required: true
+        style: simple
+        explode: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/body_2'
+        "400":
+          description: Invalid sellerId value.
   /seller/{idSeller}/image:
     put:
       tags:
-        - seller
+      - Seller
       summary: uploads an seller image
       operationId: uploadSellerImage
       parameters:
-        - name: idSeller
-          in: path
-          description: ID of seller to update
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
-            format: int64
+      - name: idSeller
+        in: path
+        description: ID of seller to update
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
       requestBody:
         content:
           application/octet-stream:
@@ -169,42 +174,127 @@ paths:
   /seller/publications:
     get:
       tags:
-        - seller
+      - Seller
       summary: Show publication list
       description: |
         By entering into cabalito's app the list of all published vehicles will be deployed
       operationId: sellerPublicationList
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: field
-          in: query
-          description: List of seller publications in order of the model
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - id_publication
-                - id_seller
-                - id_door_number
-                - id_model
-                - id_color
-                - id_city
-                - license_plate
-                - description
-                - motor
-                - price
-                - status
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: field
+        in: query
+        description: List of seller publications in order of the model
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - id_publication
+            - id_seller
+            - id_door_number
+            - id_model
+            - id_color
+            - id_city
+            - license_plate
+            - description
+            - motor
+            - price
+            - status
+      responses:
+        "200":
+          description: generate post result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "400":
+          description: Bad request
+        "404":
+          description: Not found user
+        "500":
+          description: Internal server error
+  /publications:
+    get:
+      tags:
+      - Publication
+      summary: Show publication list
+      description: |
+        By entering into cabalito's app the list of all published vehicles will be deployed
+      operationId: publicationList
+      parameters:
+      - name: initialId
+        in: query
+        description: |
+          initialId for the list of publications
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: numberRows
+        in: query
+        description: |
+          numberRows for the list of publications
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idBrand
+        in: query
+        description: |
+          idBrand for search
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idModel
+        in: query
+        description: |
+          idModel for search
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idColor
+        in: query
+        description: |
+          idColor for search
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idDoorNumber
+        in: query
+        description: |
+          idDoorNumber for search
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idCity
+        in: query
+        description: |
+          idCity for search
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: integer
       responses:
         "200":
           description: generate post result
@@ -218,107 +308,22 @@ paths:
           description: Not found user
         "500":
           description: Internal server error
-  /publications:
-    get:
-      tags:
-        - seller
-      summary: Show publication list
-      description: |
-        By entering into cabalito's app the list of all published vehicles will be deployed
-      operationId: publicationList
-      parameters:
-        - name: initialId
-          in: query
-          description: |
-            initialId for the list of publications
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: numberRows
-          in: query
-          description: |
-            numberRows for the list of publications
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idBrand
-          in: query
-          description: |
-            idBrand for search
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idModel
-          in: query
-          description: |
-            idModel for search
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idColor
-          in: query
-          description: |
-            idColor for search
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idDoorNumber
-          in: query
-          description: |
-            idDoorNumber for search
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idCity
-          in: query
-          description: |
-            idCity for search
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-      responses:
-        "200":
-          description: generate post result
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_2'
-        "400":
-          description: Bad request
-        "404":
-          description: Not found user
-        "500":
-          description: Internal server error
     post:
       tags:
-        - seller
+      - Publication
       summary: add new publication
       description: |
         By passing the appropriate options, you can add a new publication
       operationId: addPublication
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
       requestBody:
         content:
           aplication/json:
@@ -335,26 +340,26 @@ paths:
   /publications/{idPublication}/image:
     post:
       tags:
-        - seller
+      - Publication
       summary: uploads an seller image
       operationId: uploadPublicationImage
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idPublication
-          in: path
-          description: post publication id
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: integer
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idPublication
+        in: path
+        description: post publication id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
       requestBody:
         content:
           application/octet-stream:
@@ -371,28 +376,28 @@ paths:
           description: Bad request.
     delete:
       tags:
-        - seller
+      - Publication
       summary: remove publication image
       description: |
         By selecting the appropriate post you can remove the unwanted image
       operationId: removePublicationImage
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idPublication
-          in: path
-          description: Publication ID
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idPublication
+        in: path
+        description: Publication ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "201":
           description: Deleted publication.
@@ -403,19 +408,19 @@ paths:
   /publications/{idPublication}:
     get:
       tags:
-        - seller
+      - Publication
       summary: See detail of a vehicle
       description: "By clicking in the publication, the user will be able to see all details \nof the publication\n"
       operationId: get publication details
       parameters:
-        - name: idPublication
-          in: path
-          description: Publication ID
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: idPublication
+        in: path
+        description: Publication ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: Viewing Successful Post
@@ -427,28 +432,28 @@ paths:
           description: Internal server error
     put:
       tags:
-        - seller
+      - Publication
       summary: edit publication
       description: |
         By passing the appropriate options, you can edit a publication
       operationId: editPublication
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idPublication
-          in: path
-          description: Publication ID
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idPublication
+        in: path
+        description: Publication ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       requestBody:
         content:
           aplication/json:
@@ -464,28 +469,28 @@ paths:
           description: Bad request.
     delete:
       tags:
-        - seller
+      - Publication
       summary: remove publication
       description: |
         By passing the appropriate options, you can remove a publication
       operationId: removePublication
       parameters:
-        - name: idSeller
-          in: cookie
-          description: post seller id
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: idPublication
-          in: path
-          description: Publication ID
-          required: true
-          style: simple
-          explode: false
-          schema:
-            type: string
+      - name: idSeller
+        in: cookie
+        description: post seller id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: idPublication
+        in: path
+        description: Publication ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "201":
           description: Deleted publication.
@@ -493,16 +498,109 @@ paths:
           description: Internal Error.
         "400":
           description: Bad request.
+  /publications/colors:
+    get:
+      tags:
+      - Publication
+      summary: See color list
+      description: the list of vehicle colors in the publication
+      operationId: getColors
+      parameters:
+      - name: field
+        in: query
+        description: List of colors
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - id_color
+            - color
+            - status
+      responses:
+        "200":
+          description: Viewing Successful Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+        "500":
+          description: Internal server error
+  /publications/brands:
+    get:
+      tags:
+      - Publication
+      summary: See brand list
+      description: the list of vehicle brand in the publication
+      operationId: getBrands
+      parameters:
+      - name: field
+        in: query
+        description: List of brands
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - id_brand
+            - brand
+            - status
+      responses:
+        "200":
+          description: Viewing Successful Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+        "500":
+          description: Internal server error
+  /publications/models:
+    get:
+      tags:
+      - Publication
+      summary: See model list
+      description: the list of vehicle models in the publication
+      operationId: getModels
+      parameters:
+      - name: field
+        in: query
+        description: List of models
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - id_model
+            - model
+            - status
+      responses:
+        "200":
+          description: Viewing Successful Post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+        "500":
+          description: Internal server error
 components:
   schemas:
     login:
       required:
-        - email
-        - first_name
-        - id_user
-        - last_name
-        - password
-        - status
+      - email
+      - first_name
+      - id_user
+      - last_name
+      - password
+      - status
       type: object
       properties:
         id_user:
@@ -525,13 +623,13 @@ components:
           example: false
     User:
       required:
-        - email
-        - first_name
-        - id_seller
-        - last_name
-        - password
-        - phone_number
-        - status
+      - email
+      - first_name
+      - id_seller
+      - last_name
+      - password
+      - phone_number
+      - status
       type: object
       properties:
         id_seller:
@@ -557,18 +655,18 @@ components:
           example: false
     Publication:
       required:
-        - description
-        - id_brand
-        - id_city
-        - id_color
-        - id_door_number
-        - id_model
-        - id_publication
-        - id_seller
-        - images
-        - license_plate
-        - price
-        - status
+      - description
+      - id_brand
+      - id_city
+      - id_color
+      - id_door_number
+      - id_model
+      - id_publication
+      - id_seller
+      - images
+      - license_plate
+      - price
+      - status
       type: object
       properties:
         id_publication:
@@ -610,17 +708,17 @@ components:
           example: false
     SellerPublication:
       required:
-        - description
-        - id_brand
-        - id_city
-        - id_color
-        - id_door_number
-        - id_model
-        - id_publication
-        - id_seller
-        - license_plate
-        - price
-        - status
+      - description
+      - id_brand
+      - id_city
+      - id_color
+      - id_door_number
+      - id_model
+      - id_publication
+      - id_seller
+      - license_plate
+      - price
+      - status
       type: object
       properties:
         id_publication:
@@ -655,10 +753,10 @@ components:
           example: false
     ImagePublication:
       required:
-        - id_image_publication
-        - id_publication
-        - path
-        - status
+      - id_image_publication
+      - id_publication
+      - path
+      - status
       type: object
       properties:
         id_image_publication:
@@ -676,9 +774,9 @@ components:
           example: false
     City:
       required:
-        - city
-        - id_city
-        - status
+      - city
+      - id_city
+      - status
       type: object
       properties:
         id_city:
@@ -692,9 +790,9 @@ components:
           example: false
     Brand:
       required:
-        - brand
-        - id_brand
-        - status
+      - brand
+      - id_brand
+      - status
       type: object
       properties:
         id_brand:
@@ -708,9 +806,9 @@ components:
           example: false
     Model:
       required:
-        - id_model
-        - model
-        - status
+      - id_model
+      - model
+      - status
       type: object
       properties:
         id_model:
@@ -724,9 +822,9 @@ components:
           example: false
     Color:
       required:
-        - color
-        - id_color
-        - status
+      - color
+      - id_color
+      - status
       type: object
       properties:
         id_color:
@@ -740,9 +838,9 @@ components:
           example: false
     DoorNumber:
       required:
-        - door_number
-        - id_door_number
-        - status
+      - door_number
+      - id_door_number
+      - status
       type: object
       properties:
         id_door_number:
@@ -764,11 +862,6 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/login'
-    inline_response_200:
-      type: object
-      properties:
-        seller:
-          $ref: '#/components/schemas/User'
     body_2:
       type: object
       properties:
@@ -779,14 +872,14 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/User'
-    inline_response_200_1:
+    inline_response_200:
       type: object
       properties:
         publications:
           type: array
           items:
             $ref: '#/components/schemas/SellerPublication'
-    inline_response_200_2:
+    inline_response_200_1:
       type: object
       properties:
         publications:
@@ -826,3 +919,8 @@ components:
       properties:
         publication:
           $ref: '#/components/schemas/Publication'
+    inline_response_200_2:
+      type: object
+      properties:
+        publication:
+          $ref: '#/components/schemas/Color'
