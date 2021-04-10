@@ -65,7 +65,7 @@ public class PublicationBl {
         return publicationRequest;
     }
 
-    public PublicationRequest update(PublicationRequest publicationRequest, Transaction transaction){
+    public PublicationRequest update(PublicationRequest publicationRequest, Transaction transaction,Integer idSeller){
 
         Publication publication=new Publication();
         publication.setIdPublication(publicationRequest.getIdPublication());
@@ -74,7 +74,7 @@ public class PublicationBl {
         publication.setIdBrand(publicationRequest.getIdBrand());
         publication.setIdCity(publicationRequest.getIdCity());
         publication.setIdColor(publicationRequest.getIdColor());
-        publication.setIdSeller(publicationRequest.getIdSeller());
+        publication.setIdSeller(idSeller);
         publication.setLicensePlate(publicationRequest.getLicensePlate());
         publication.setTitle(publicationRequest.getTitle());
         publication.setModel(publicationRequest.getModel());

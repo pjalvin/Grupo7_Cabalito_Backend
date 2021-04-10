@@ -63,7 +63,9 @@ public class PublicationApi {
     public PublicationRequest update(@RequestBody PublicationRequest publicationRequest, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        publicationBl.update(publicationRequest,transaction);
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
+        publicationBl.update(publicationRequest,transaction,idSeller);
         return publicationRequest;
     }
     @RequestMapping(path="images" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

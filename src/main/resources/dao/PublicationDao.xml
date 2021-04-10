@@ -60,6 +60,7 @@
         status=1
         WHERE
         id_publication=#{idPublication}
+        AND id_seller=#{idSeller}
     </update>
     <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Publication">
         UPDATE publication set

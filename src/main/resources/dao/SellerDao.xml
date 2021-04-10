@@ -92,6 +92,7 @@
             and publication.status=1
             and seller.status=1
         GROUP BY publication.id_publication
+        ORDER BY publication.date DESC
         LIMIT #{n} OFFSET #{i}
 
     </select>
