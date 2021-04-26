@@ -41,6 +41,24 @@ CREATE TABLE color (
     CONSTRAINT color_pk PRIMARY KEY (id_color)
 );
 
+-- Table: h_mechanic
+CREATE TABLE h_mechanic (
+    id_h_mechanic int NOT NULL AUTO_INCREMENT,
+    id_mechanic int NOT NULL,
+    id_person int NOT NULL,
+    id_city int NOT NULL,
+    location varchar(255) NOT NULL,
+    shop_name varchar(255) NOT NULL,
+    shop_phone_number varchar(50) NOT NULL,
+    stars tinyint NOT NULL,
+    stars_count int NOT NULL,
+    status tinyint NOT NULL,
+    tx_date datetime NOT NULL,
+    tx_id_user int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_update datetime NOT NULL,
+    CONSTRAINT h_mechanic_pk PRIMARY KEY (id_h_mechanic)
+);
 
 -- Table: h_person
 CREATE TABLE h_person (
@@ -123,6 +141,23 @@ CREATE TABLE image_publication (
     CONSTRAINT image_publication_pk PRIMARY KEY (id_image_publication)
 );
 
+-- Table: mechanic
+CREATE TABLE mechanic (
+   id_mechanic int NOT NULL AUTO_INCREMENT,
+   id_person int NOT NULL,
+   id_city int NOT NULL,
+   location varchar(255) NOT NULL,
+   shop_name varchar(255) NOT NULL,
+   shop_phone_number varchar(50) NOT NULL,
+   stars tinyint NOT NULL,
+   stars_count int NOT NULL,
+   status tinyint NOT NULL,
+   tx_date datetime NOT NULL,
+   tx_id_user int NOT NULL,
+   tx_host varchar(100) NOT NULL,
+   tx_update datetime NOT NULL,
+   CONSTRAINT mechanic_pk PRIMARY KEY (id_mechanic)
+);
 
 -- Table: person
 CREATE TABLE person (
@@ -174,6 +209,8 @@ CREATE TABLE seller (
     tx_update datetime NOT NULL,
     CONSTRAINT seller_pk PRIMARY KEY (id_seller)
 );
+
+-- Table: user
 CREATE TABLE user (
     id_user int NOT NULL AUTO_INCREMENT,
     password char(64) NOT NULL,
@@ -191,6 +228,13 @@ CREATE TABLE user (
 ALTER TABLE image_publication ADD CONSTRAINT image_publication FOREIGN KEY image_publication (id_publication)
     REFERENCES publication (id_publication);
 
+-- Reference: mechanic_city (table: mechanic)
+ALTER TABLE mechanic ADD CONSTRAINT mechanic_city FOREIGN KEY mechanic_city (id_city)
+    REFERENCES city (id_city);
+
+-- Reference: mechanic_persona (table: mechanic)
+ALTER TABLE mechanic ADD CONSTRAINT mechanic_persona FOREIGN KEY mechanic_persona (id_person)
+    REFERENCES person (id_person);
 
 -- Reference: publication_brand (table: publication)
 ALTER TABLE publication ADD CONSTRAINT publication_brand FOREIGN KEY publication_brand (id_brand)
