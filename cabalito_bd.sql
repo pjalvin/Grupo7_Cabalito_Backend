@@ -50,6 +50,7 @@ CREATE TABLE h_mechanic (
     location varchar(255) NOT NULL,
     shop_name varchar(255) NOT NULL,
     shop_phone_number varchar(50) NOT NULL,
+    verification_path varchar(255) NOT NULL,
     stars tinyint NOT NULL,
     stars_count int NOT NULL,
     status tinyint NOT NULL,
@@ -151,6 +152,7 @@ CREATE TABLE mechanic (
    shop_phone_number varchar(50) NOT NULL,
    stars tinyint NOT NULL,
    stars_count int NOT NULL,
+   verification_path varchar(255) NOT NULL,
    status tinyint NOT NULL,
    tx_date datetime NOT NULL,
    tx_id_user int NOT NULL,
@@ -236,6 +238,7 @@ CREATE TABLE star(
     tx_update datetime NOT NULL,
     CONSTRAINT star_pk PRIMARY KEY (id_star)
 );
+
 
 
 -- foreign keys
