@@ -9,6 +9,7 @@ public class Mechanic {
     private String shopPhoneNumber;
     private Integer stars;
     private Integer starsCount;
+    private String verificationPath;
     private Integer status;
     private Transaction transaction;
 
@@ -79,6 +80,14 @@ public class Mechanic {
         this.starsCount = starsCount;
     }
 
+    public String getVerificationPath() {
+        return verificationPath;
+    }
+
+    public void setVerificationPath(String verificationPath) {
+        this.verificationPath = verificationPath;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -106,6 +115,7 @@ public class Mechanic {
                 ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
                 ", stars=" + stars +
                 ", starsCount=" + starsCount +
+                ", verificationPath='" + verificationPath + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
                 '}';

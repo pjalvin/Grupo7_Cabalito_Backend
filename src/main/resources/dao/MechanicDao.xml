@@ -20,7 +20,7 @@
 
     </select>
 
-        <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
+    <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
         SELECT
                 stars_count as starsCount,
                 stars as stars
@@ -28,7 +28,7 @@
     </select>
 
 
-        <update id="starsValue" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+    <update id="starsValue" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic SET
             stars = (#{stars}+stars*stars_count)/(stars_count+1),
             stars_count = stars_count+1
