@@ -20,7 +20,13 @@
 
     </select>
 
-    <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
+    <insert id="createMechanic" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        INSERT into mechanic VALUES
+        (null,#{idSeller},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verification_path},2,#{transaction.txDate},
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+
+        <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
         SELECT
                 stars_count as starsCount,
                 stars as stars

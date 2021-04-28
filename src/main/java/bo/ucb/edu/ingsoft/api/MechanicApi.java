@@ -4,8 +4,11 @@ import bo.ucb.edu.ingsoft.bl.MechanicBl;
 import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
+import bo.ucb.edu.ingsoft.dto.MechanicRequest;
+import bo.ucb.edu.ingsoft.model.Mechanic;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
+import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +32,21 @@ public class MechanicApi {
         return mechanic;
     }
 
-    @RequestMapping(method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="qualify",method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
     public QualifyMechanicRequest qualifyMechanic(@RequestBody QualifyMechanicRequest qualifyMechanicRequest , HttpServletRequest request){
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         return mechanicBl.qualifyMechanic(qualifyMechanicRequest,transaction);
+    }
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public MechanicRequest create(@RequestBody MechanicRequest mechanicRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        mechanicRequest.setIdSeller(idSeller);
+        mechanicBl.create(mechanicRequest,transaction);
+        return mechanicRequest;
     }
 
 

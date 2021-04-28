@@ -17,5 +17,7 @@ public interface MechanicDao {
 
     public void starsValue(Mechanic mechanic);
 
+    public void createMechanic(Mechanic mechanic);
+
     public MechanicSellerRequest mechanicSeller(Integer sellerId);
 }

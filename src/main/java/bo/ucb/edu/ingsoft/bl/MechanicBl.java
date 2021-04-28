@@ -1,14 +1,15 @@
 package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.MechanicDao;
+import bo.ucb.edu.ingsoft.dao.PersonDao;
 import bo.ucb.edu.ingsoft.dao.StarDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
+import bo.ucb.edu.ingsoft.dto.MechanicRequest;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
-import bo.ucb.edu.ingsoft.model.Mechanic;
-import bo.ucb.edu.ingsoft.model.Star;
-import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.dto.SellerRequest;
+import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class MechanicBl {
     private MechanicDao mechanicDao;
     private StarDao starDao;
     private TransactionDao transactionDao;
+    private PersonDao personDao;
 
     @Autowired
     public MechanicBl(MechanicDao mechanicDao,StarDao starDao, TransactionDao transactionDao){
@@ -49,6 +51,23 @@ public class MechanicBl {
         mechanic.setIdMechanic(qualifyMechanicRequest.getIdMechanic());
         mechanicDao.starsValue(mechanic);
         return qualifyMechanicRequest;
+    }
+    public MechanicRequest create(MechanicRequest mechanicRequest, Transaction transaction){
+        Mechanic mechanic = new Mechanic();
+        mechanic.setIdSeller(mechanicRequest.getIdSeller());
+        mechanic.setIdCity(mechanicRequest.getIdCity());
+
+        mechanic.setLocation(mechanicRequest.getLocation());
+        mechanic.setShopName(mechanicRequest.getShopName());
+        mechanic.setShopPhoneNumber(mechanicRequest.getShopPhoneNumber());
+        mechanic.setVerificationPath(mechanicRequest.getVerificationPath());
+
+        mechanic.setTransaction(transaction);
+        mechanicDao.createMechanic(mechanic);
+        int mechanicId = transactionDao.getLastInsertId();
+        mechanicRequest.setIdMechanic(mechanicId);
+        return mechanicRequest;
+
     }
 
 
