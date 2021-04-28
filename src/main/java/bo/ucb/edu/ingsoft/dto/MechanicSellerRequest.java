@@ -1,7 +1,6 @@
-package bo.ucb.edu.ingsoft.model;
+package bo.ucb.edu.ingsoft.dto;
 
-public class Mechanic {
-    private Integer idMechanic;
+public class MechanicSellerRequest {
     private Integer idSeller;
     private Integer idCity;
     private String location;
@@ -11,18 +10,16 @@ public class Mechanic {
     private Integer starsCount;
     private String verificationPath;
     private Integer status;
-    private Transaction transaction;
 
-
-    public Mechanic() {
+    public Integer getStatus() {
+        return status;
     }
 
-    public Integer getIdMechanic() {
-        return idMechanic;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public void setIdMechanic(Integer idMechanic) {
-        this.idMechanic = idMechanic;
+    public MechanicSellerRequest() {
     }
 
     public Integer getIdSeller() {
@@ -89,27 +86,10 @@ public class Mechanic {
         this.verificationPath = verificationPath;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
     @Override
     public String toString() {
-        return "Mechanic{" +
-                "idMechanic=" + idMechanic +
-                ", idSeller=" + idSeller +
+        return "MechanicSellerRequest{" +
+                "idSeller=" + idSeller +
                 ", idCity=" + idCity +
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
@@ -118,7 +98,6 @@ public class Mechanic {
                 ", starsCount=" + starsCount +
                 ", verificationPath='" + verificationPath + '\'' +
                 ", status=" + status +
-                ", transaction=" + transaction +
                 '}';
     }
 }

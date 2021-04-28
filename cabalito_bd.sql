@@ -42,6 +42,7 @@ CREATE TABLE color (
 );
 
 
+
 -- Table: h_person
 CREATE TABLE h_person (
     id_h_person int NOT NULL AUTO_INCREMENT,
@@ -123,6 +124,7 @@ CREATE TABLE image_publication (
     CONSTRAINT image_publication_pk PRIMARY KEY (id_image_publication)
 );
 
+-- Table: mechanic
 
 -- Table: person
 CREATE TABLE person (
@@ -174,6 +176,8 @@ CREATE TABLE seller (
     tx_update datetime NOT NULL,
     CONSTRAINT seller_pk PRIMARY KEY (id_seller)
 );
+
+-- Table: user
 CREATE TABLE user (
     id_user int NOT NULL AUTO_INCREMENT,
     password char(64) NOT NULL,
@@ -186,10 +190,15 @@ CREATE TABLE user (
     CONSTRAINT user_pk PRIMARY KEY (id_user)
 );
 
+
+
+
+
 -- foreign keys
 -- Reference: image_publication (table: image_publication)
 ALTER TABLE image_publication ADD CONSTRAINT image_publication FOREIGN KEY image_publication (id_publication)
     REFERENCES publication (id_publication);
+
 
 
 -- Reference: publication_brand (table: publication)
@@ -218,3 +227,64 @@ ALTER TABLE seller ADD CONSTRAINT seller_user FOREIGN KEY seller_user (id_user)
 
 -- End of file.
 ALTER TABLE publication ADD FULLTEXT (title,description);
+-- Insercion de nuevas tablas mechanic, h_mechanic, star
+drop table h_mechanic;
+drop table mechanic;
+drop table star;
+-- Table: h_mechanic
+CREATE TABLE h_mechanic (
+                            id_h_mechanic int NOT NULL AUTO_INCREMENT,
+                            id_mechanic int NOT NULL,
+                            id_seller int NOT NULL,
+                            id_city int NOT NULL,
+                            location varchar(255) NOT NULL,
+                            shop_name varchar(255) NOT NULL,
+                            shop_phone_number varchar(50) NOT NULL,
+                            verification_path varchar(255),
+                            stars tinyint NOT NULL,
+                            stars_count int NOT NULL,
+                            status tinyint NOT NULL,
+                            tx_date datetime NOT NULL,
+                            tx_id_user int NOT NULL,
+                            tx_host varchar(100) NOT NULL,
+                            tx_update datetime NOT NULL,
+                            CONSTRAINT h_mechanic_pk PRIMARY KEY (id_h_mechanic)
+);
+CREATE TABLE mechanic (
+                          id_mechanic int NOT NULL AUTO_INCREMENT,
+                          id_seller int NOT NULL,
+                          id_city int NOT NULL,
+                          location varchar(255) NOT NULL,
+                          shop_name varchar(255) NOT NULL,
+                          shop_phone_number varchar(50) NOT NULL,
+                          stars tinyint NOT NULL,
+                          stars_count int NOT NULL,
+                          verification_path varchar(255),
+                          status tinyint NOT NULL,
+                          tx_date datetime NOT NULL,
+                          tx_id_user int NOT NULL,
+                          tx_host varchar(100) NOT NULL,
+                          tx_update datetime NOT NULL,
+                          CONSTRAINT mechanic_pk PRIMARY KEY (id_mechanic)
+);
+-- Table : star
+CREATE TABLE star(
+                     id_star int NOT NULL AUTO_INCREMENT,
+                     id_seller int NOT NULL,
+                     id_mechanic int NOT NULL,
+                     score tinyint NOT NULL,
+                     status tinyint NOT NULL,
+                     tx_date datetime NOT NULL,
+                     tx_id_user int NOT NULL,
+                     tx_host varchar(100) NOT NULL,
+                     tx_update datetime NOT NULL,
+                     CONSTRAINT star_pk PRIMARY KEY (id_star)
+);
+-- Reference: mechanic_city (table: mechanic)
+ALTER TABLE mechanic ADD CONSTRAINT mechanic_city FOREIGN KEY mechanic_city (id_city)
+    REFERENCES city (id_city);
+
+-- Reference: mechanic_persona (table: mechanic)
+ALTER TABLE mechanic ADD CONSTRAINT mechanic_seller FOREIGN KEY mechanic_seller (id_seller)
+    REFERENCES seller (id_seller);
+ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_seller,id_mechanic);

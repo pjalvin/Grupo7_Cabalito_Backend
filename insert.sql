@@ -2553,3 +2553,18 @@ INSERT INTO image_publication(id_image_publication,id_publication,path,status,tx
 INSERT INTO image_publication(id_image_publication,id_publication,path,status,tx_date,tx_id_user,tx_host,tx_update) VALUES (499,499,'imagePublication/tq0mFIJIrlmxastbTYYT.jpg',1,'2020-04-23 0:00:00',74,'104.141.8.165','2021-02-04 0:00:00');
 INSERT INTO image_publication(id_image_publication,id_publication,path,status,tx_date,tx_id_user,tx_host,tx_update) VALUES (500,500,'imagePublication/tq0mFIJIrlmxastbTYYT.jpg',1,'2020-10-20 0:00:00',287,'21.4.122.166','2020-07-21 0:00:00');
 COMMIT;
+
+-- Insert table mechanic
+
+START TRANSACTION ;
+INSERT INTO mechanic VALUES
+(NULL,1,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,NULL,1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,2,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,NULL,1,NOW(),2,'192.168.10.215',NOW()),
+(NULL,3,3,'Av. Busch','Taller Brillante','25639845',0,0,NULL,1,NOW(),3,'192.168.10.215',NOW()),
+(NULL,4,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,NULL,1,NOW(),4,'192.168.10.215',NOW()),
+(NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,NULL,1,NOW(),5,'192.168.10.215',NOW());
+(NULL,3,3,'Av. Busch','Taller Brillante','25639845',0,0,NULL,1,NOW(),3,'192.168.10.215',NOW()),
+(NULL,4,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,NULL,1,NOW(),4,'192.168.10.215',NOW()),
+(NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,NULL,1,NOW(),5,'192.168.10.215',NOW());
+
+COMMIT ;

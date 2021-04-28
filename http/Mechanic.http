@@ -1,0 +1,26 @@
+GET http://localhost:8080/mechanic
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/mechanic/qualify
+Accept: application/json
+Content-Type: application/json
+
+{
+"idUser": 1,
+"idMechanic": 1,
+"score": 5
+}
+
+###
+
+GET http://localhost:8080/mechanic/seller
+Accept: application/json
+Content-Type: application/json
+
+###
+
+
+
+

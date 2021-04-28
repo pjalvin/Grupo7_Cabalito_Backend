@@ -1,20 +1,15 @@
-package bo.ucb.edu.ingsoft.model;
+package bo.ucb.edu.ingsoft.dto;
 
-public class Mechanic {
+public class MechanicRequest {
     private Integer idMechanic;
-    private Integer idSeller;
     private Integer idCity;
+    private Integer idSeller;
     private String location;
     private String shopName;
     private String shopPhoneNumber;
-    private Integer stars;
-    private Integer starsCount;
     private String verificationPath;
-    private Integer status;
-    private Transaction transaction;
 
-
-    public Mechanic() {
+    public MechanicRequest() {
     }
 
     public Integer getIdMechanic() {
@@ -25,20 +20,20 @@ public class Mechanic {
         this.idMechanic = idMechanic;
     }
 
-    public Integer getIdSeller() {
-        return idSeller;
-    }
-
-    public void setIdSeller(Integer idSeller) {
-        this.idSeller = idSeller;
-    }
-
     public Integer getIdCity() {
         return idCity;
     }
 
     public void setIdCity(Integer idCity) {
         this.idCity = idCity;
+    }
+
+    public Integer getIdSeller() {
+        return idSeller;
+    }
+
+    public void setIdSeller(Integer idSeller) {
+        this.idSeller = idSeller;
     }
 
     public String getLocation() {
@@ -65,22 +60,6 @@ public class Mechanic {
         this.shopPhoneNumber = shopPhoneNumber;
     }
 
-    public Integer getStars() {
-        return stars;
-    }
-
-    public void setStars(Integer stars) {
-        this.stars = stars;
-    }
-
-    public Integer getStarsCount() {
-        return starsCount;
-    }
-
-    public void setStarsCount(Integer starsCount) {
-        this.starsCount = starsCount;
-    }
-
     public String getVerificationPath() {
         return verificationPath;
     }
@@ -89,36 +68,16 @@ public class Mechanic {
         this.verificationPath = verificationPath;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
     @Override
     public String toString() {
-        return "Mechanic{" +
+        return "MechanicRequest{" +
                 "idMechanic=" + idMechanic +
-                ", idSeller=" + idSeller +
                 ", idCity=" + idCity +
+                ", idSeller=" + idSeller +
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
                 ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
-                ", stars=" + stars +
-                ", starsCount=" + starsCount +
                 ", verificationPath='" + verificationPath + '\'' +
-                ", status=" + status +
-                ", transaction=" + transaction +
                 '}';
     }
 }
