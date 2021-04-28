@@ -2558,9 +2558,9 @@ COMMIT;
 
 START TRANSACTION ;
 INSERT INTO mechanic VALUES
-(NULL,1,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,'vacio',2,NOW(),1,'192.168.10.215',NOW()),
-(NULL,2,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,'vacio',2,NOW(),2,'192.168.10.215',NOW()),
-(NULL,3,3,'Av. Busch','Taller Brillante','25639845',0,0,'vacio',2,NOW(),3,'192.168.10.215',NOW()),
-(NULL,4,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,'vacio',2,NOW(),4,'192.168.10.215',NOW()),
-(NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,'vacio',2,NOW(),5,'192.168.10.215',NOW());
+(NULL,1,1,'Av. 20 de Octubre','Fierro Veloz','22015478',0,0,'vacio',1,NOW(),1,'192.168.10.215',NOW()),
+(NULL,2,2,'Av. Alemana','Taller Iwanaga','25634857',0,0,'vacio',1,NOW(),2,'192.168.10.215',NOW()),
+(NULL,3,3,'Av. Busch','Taller Brillante','25639845',0,0,'vacio',1,NOW(),3,'192.168.10.215',NOW()),
+(NULL,4,4,'Av. Los Sargentos','Taller El Tuercas','23561547',0,0,'vacio',1,NOW(),4,'192.168.10.215',NOW()),
+(NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,'vacio',1,NOW(),5,'192.168.10.215',NOW());
 COMMIT ;
