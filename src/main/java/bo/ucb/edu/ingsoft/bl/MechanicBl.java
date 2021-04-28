@@ -10,9 +10,11 @@ import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.*;
+import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -68,6 +70,14 @@ public class MechanicBl {
         mechanicRequest.setIdMechanic(mechanicId);
         return mechanicRequest;
 
+    }
+    public void uploadImages(MultipartFile images, Integer idMechanic, Transaction transaction){
+        StorageUtil storageUtil= new StorageUtil();
+        String nombre=storageUtil.upload(images,"imageMechanic");
+        Mechanic mechanic = new Mechanic();
+        mechanic.setIdMechanic(idMechanic);
+        mechanic.setVerificationPath(nombre);
+        mechanicDao.updateImage(mechanic);
     }
 
     public MechanicSellerRequest mechanicSeller(Integer sellerId){

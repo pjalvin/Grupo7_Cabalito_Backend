@@ -21,9 +21,16 @@
 
     <insert id="createMechanic" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         INSERT into mechanic VALUES
-        (null,#{idSeller},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verification_path},2,#{transaction.txDate},
+        (null,#{idSeller},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verificationPath},2,#{transaction.txDate},
         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
+    <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        UPDATE mechanic SET
+        verification_path=#{verificationPath}
+        WHERE id_mechanic=#{idMechanic} and
+            status = 1
+    </update>
+
 
     <select id="stars" resultType="bo.ucb.edu.ingsoft.model.Mechanic">
         SELECT

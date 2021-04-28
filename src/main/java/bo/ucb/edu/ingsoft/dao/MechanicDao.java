@@ -4,6 +4,7 @@ import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
 import bo.ucb.edu.ingsoft.model.Mechanic;
+import bo.ucb.edu.ingsoft.model.Seller;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface MechanicDao {
     public void starsValue(Mechanic mechanic);
 
     public void createMechanic(Mechanic mechanic);
+
+    public void updateImage(Mechanic mechanic);
 
     public MechanicSellerRequest mechanicSeller(Integer sellerId);
 }

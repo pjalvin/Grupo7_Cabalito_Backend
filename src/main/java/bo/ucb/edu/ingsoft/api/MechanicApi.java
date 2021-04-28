@@ -12,6 +12,8 @@ import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -47,6 +49,13 @@ public class MechanicApi {
         mechanicRequest.setIdSeller(idSeller);
         mechanicBl.create(mechanicRequest,transaction);
         return mechanicRequest;
+    }
+    @RequestMapping(path="/image",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String uploadImages(@RequestParam MultipartFile images, @RequestParam Integer idMechanic, HttpServletRequest request){
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        mechanicBl.uploadImages(images,idMechanic,transaction);
+        return "Imagenes subidas correctamente";
     }
 
 
