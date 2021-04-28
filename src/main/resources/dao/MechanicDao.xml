@@ -8,8 +8,9 @@
         <result column="location" property="location"/>
         <result column="shopName" property="shopName"/>
         <result column="stars" property="stars"/>
+        <result column="shopNumberPhone" property="shopNumberPhone"/>
     </resultMap>
-    <select id="mechanics" resultMap="mechanicsMap">
+    <select id="mechanics" resultType="bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest">
         SELECT
                id_mechanic as idMechanic,
                location as location,
@@ -46,7 +47,7 @@
         WHERE id_mechanic = #{idMechanic} and status = 1
     </update>
 
-    <select id="mechanicSeller" resultMap="bo.ucb.edu.ingsoft.dto.MechanicSellerRequest">
+    <select id="mechanicSeller" resultType="bo.ucb.edu.ingsoft.dto.MechanicSellerRequest">
         SELECT
             a.id_seller as idSeller,
             a.id_city as idCity,
