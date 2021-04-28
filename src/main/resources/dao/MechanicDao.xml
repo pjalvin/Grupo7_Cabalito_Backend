@@ -29,7 +29,7 @@
         UPDATE mechanic SET
         verification_path=#{verificationPath}
         WHERE id_mechanic=#{idMechanic} and
-            status = 1
+            status = 2
     </update>
 
 
