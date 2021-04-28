@@ -2,7 +2,7 @@ package bo.ucb.edu.ingsoft.model;
 
 public class Star {
     private Integer idStar;
-    private Integer idUser;
+    private Integer idSeller;
     private Integer idMechanic;
     private Integer score;
     private Transaction transaction;
@@ -18,12 +18,12 @@ public class Star {
         this.idStar = idStar;
     }
 
-    public Integer getIdUser() {
-        return idUser;
+    public Integer getIdSeller() {
+        return idSeller;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setIdSeller(Integer idSeller) {
+        this.idSeller = idSeller;
     }
 
     public Integer getIdMechanic() {
@@ -54,7 +54,7 @@ public class Star {
     public String toString() {
         return "Star{" +
                 "idStar=" + idStar +
-                ", idUser=" + idUser +
+                ", idSeller=" + idSeller +
                 ", idMechanic=" + idMechanic +
                 ", score=" + score +
                 ", transaction=" + transaction +

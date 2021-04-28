@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.StarDao">
     <insert id="createStar" parameterType="bo.ucb.edu.ingsoft.model.Star">
         INSERT into star VALUES
-        (null,#{idUser},#{idMechanic},#{score},1,#{transaction.txDate},
+        (null,#{idSeller},#{idMechanic},#{score},1,#{transaction.txDate},
          #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
 </mapper>

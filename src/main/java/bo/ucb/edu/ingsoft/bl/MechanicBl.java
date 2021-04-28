@@ -39,7 +39,7 @@ public class MechanicBl {
 
         Star star = new Star();
         UserUtil userUtil=new UserUtil();
-        star.setIdUser(userUtil.getIdUser());
+        star.setIdSeller(userUtil.getIdUser());
         star.setIdMechanic(qualifyMechanicRequest.getIdMechanic());
         star.setScore(qualifyMechanicRequest.getScore());
         star.setTransaction(transaction);
@@ -69,8 +69,6 @@ public class MechanicBl {
         return mechanicRequest;
 
     }
-
-
 
     public MechanicSellerRequest mechanicSeller(Integer sellerId){
         return mechanicDao.mechanicSeller(sellerId);

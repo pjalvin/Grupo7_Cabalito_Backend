@@ -3,19 +3,7 @@ Accept: application/json
 
 ###
 
-POST http://localhost:8080/mechanic
-Accept: application/json
-Content-Type: application/json
-
-{
-  "idUser": 1,
-  "idMechanic": 1,
-  "score": 5
-}
-
-###
-
-PUT http://localhost:8080/mechanic
+PUT http://localhost:8080/mechanic/qualify
 Accept: application/json
 Content-Type: application/json
 
@@ -24,4 +12,15 @@ Content-Type: application/json
 "idMechanic": 1,
 "score": 5
 }
+
+###
+
+GET http://localhost:8080/mechanic/1
+Accept: application/json
+Content-Type: application/json
+
+###
+
+
+
 

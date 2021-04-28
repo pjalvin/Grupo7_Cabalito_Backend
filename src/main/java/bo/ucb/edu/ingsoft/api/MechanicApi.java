@@ -32,7 +32,7 @@ public class MechanicApi {
         return mechanic;
     }
 
-    @RequestMapping(path="qualify",method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="/qualify",method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
     public QualifyMechanicRequest qualifyMechanic(@RequestBody QualifyMechanicRequest qualifyMechanicRequest , HttpServletRequest request){
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
@@ -48,16 +48,6 @@ public class MechanicApi {
         mechanicBl.create(mechanicRequest,transaction);
         return mechanicRequest;
     }
-
-
-
-
-
-
-
-
-
-
 
 
     @GetMapping(path = "/{sellerId}", produces = MediaType.APPLICATION_JSON_VALUE)
