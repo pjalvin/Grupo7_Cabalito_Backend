@@ -9,6 +9,15 @@ public class MechanicSellerRequest {
     private Integer stars;
     private Integer starsCount;
     private String verificationPath;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public MechanicSellerRequest() {
     }
@@ -88,6 +97,7 @@ public class MechanicSellerRequest {
                 ", stars=" + stars +
                 ", starsCount=" + starsCount +
                 ", verificationPath='" + verificationPath + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

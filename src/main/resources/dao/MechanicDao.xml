@@ -56,11 +56,12 @@
             a.shop_phone_number as shopPhoneNumber,
             a.stars as stars,
             a.stars_count as starsCount,
-            a.verification_path as verificationPath
+            a.verification_path as verificationPath,
+        a.status as status
         FROM
             mechanic a
         WHERE
             a.id_seller = #{idSeller}
-          and a.status = 1
+          and a.status !=0
     </select>
 </mapper>
