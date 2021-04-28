@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dao;
 
+import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
 import bo.ucb.edu.ingsoft.model.Mechanic;
@@ -15,4 +16,6 @@ public interface MechanicDao {
     public Mechanic stars (Integer idMechanic);
 
     public void starsValue(Mechanic mechanic);
+
+    public MechanicSellerRequest mechanicSeller(Integer sellerId);
 }
