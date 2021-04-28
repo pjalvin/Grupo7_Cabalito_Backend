@@ -74,7 +74,8 @@ CREATE TRIGGER tg_insert_h_publication AFTER INSERT ON publication
 delimiter ;
 
 delimiter |
-CREATE TRIGGER tg_update_h_publication AFTER UPDATE ON publication
+CREATE TRIGGER tg_update_h_publication
+    AFTER UPDATE ON publication
     FOR EACH ROW
     BEGIN
         INSERT INTO h_publication VALUES (null, NEW.id_publication,NEW.id_seller,NEW.id_brand,NEW.id_color,NEW.id_city,NEW.title,
@@ -84,7 +85,7 @@ CREATE TRIGGER tg_update_h_publication AFTER UPDATE ON publication
 |
 delimiter ;
 
-DELIMITER |
+delimiter |
 
 CREATE TRIGGER tg_h_mechanic_insert
 AFTER INSERT ON mechanic
@@ -95,6 +96,9 @@ BEGIN
     ,NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update);
 END;
 |
+delimiter ;
+
+delimiter |
 
 CREATE TRIGGER tg_h_mechanic_update
 AFTER UPDATE ON mechanic

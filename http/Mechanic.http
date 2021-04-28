@@ -13,3 +13,15 @@ Content-Type: application/json
   "score": 5
 }
 
+###
+
+PUT http://localhost:8080/mechanic
+Accept: application/json
+Content-Type: application/json
+
+{
+"idUser": 1,
+"idMechanic": 1,
+"score": 5
+}
+

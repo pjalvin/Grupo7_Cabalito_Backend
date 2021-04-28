@@ -3,6 +3,8 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.MechanicBl;
 import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
+import bo.ucb.edu.ingsoft.dto.MechanicRequest;
+import bo.ucb.edu.ingsoft.model.Mechanic;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,13 @@ public class MechanicApi {
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         return mechanicBl.qualifyMechanic(qualifyMechanicRequest,transaction);
+    }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public MechanicRequest create(@RequestBody MechanicRequest mechanicRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        mechanicBl.create(mechanicRequest,transaction);
+        return mechanicRequest;
     }
 
 }

@@ -12,9 +12,20 @@ public class Mechanic {
     private String verificationPath;
     private Integer status;
     private Transaction transaction;
+    private String verification_path;
 
     public Mechanic() {
     }
+
+
+    public String getVerification_path() {
+        return verification_path;
+    }
+
+    public void setVerification_path(String verification_path) {
+        this.verification_path = verification_path;
+    }
+
 
     public Integer getIdMechanic() {
         return idMechanic;
@@ -118,6 +129,7 @@ public class Mechanic {
                 ", verificationPath='" + verificationPath + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
+                ", verification_path='" + verification_path + '\'' +
                 '}';
     }
 }
