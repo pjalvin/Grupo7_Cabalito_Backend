@@ -2,16 +2,12 @@ package bo.ucb.edu.ingsoft.dto;
 
 public class MechanicRequest {
     private Integer idMechanic;
-    private Integer idPerson;
     private Integer idCity;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private String city;
+    private Integer idSeller;
     private String location;
     private String shopName;
     private String shopPhoneNumber;
-    private String verification_path;
+    private String verificationPath;
 
     public MechanicRequest() {
     }
@@ -24,14 +20,6 @@ public class MechanicRequest {
         this.idMechanic = idMechanic;
     }
 
-    public Integer getIdPerson() {
-        return idPerson;
-    }
-
-    public void setIdPerson(Integer idPerson) {
-        this.idPerson = idPerson;
-    }
-
     public Integer getIdCity() {
         return idCity;
     }
@@ -40,36 +28,12 @@ public class MechanicRequest {
         this.idCity = idCity;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Integer getIdSeller() {
+        return idSeller;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setIdSeller(Integer idSeller) {
+        this.idSeller = idSeller;
     }
 
     public String getLocation() {
@@ -96,28 +60,24 @@ public class MechanicRequest {
         this.shopPhoneNumber = shopPhoneNumber;
     }
 
-    public String getVerification_path() {
-        return verification_path;
+    public String getVerificationPath() {
+        return verificationPath;
     }
 
-    public void setVerification_path(String verification_path) {
-        this.verification_path = verification_path;
+    public void setVerificationPath(String verificationPath) {
+        this.verificationPath = verificationPath;
     }
 
     @Override
     public String toString() {
         return "MechanicRequest{" +
                 "idMechanic=" + idMechanic +
-                ", idPerson=" + idPerson +
                 ", idCity=" + idCity +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", city='" + city + '\'' +
+                ", idSeller=" + idSeller +
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
                 ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
-                ", verification_path='" + verification_path + '\'' +
+                ", verificationPath='" + verificationPath + '\'' +
                 '}';
     }
 }

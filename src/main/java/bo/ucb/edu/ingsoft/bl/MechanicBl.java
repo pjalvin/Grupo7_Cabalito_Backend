@@ -52,16 +52,15 @@ public class MechanicBl {
         return qualifyMechanicRequest;
     }
     public MechanicRequest create(MechanicRequest mechanicRequest, Transaction transaction){
-        Person person = new Person();
         Mechanic mechanic = new Mechanic();
-        person.setFirstName(mechanicRequest.getFirstName());
-        person.setLastName(mechanicRequest.getLastName());
-        person.setPhoneNumber(mechanicRequest.getPhoneNumber());
-        person.setTransaction(transaction);
-        personDao.createPerson(person);
-        int personId=transactionDao.getLastInsertId();
-        mechanic.setVerification_path(mechanicRequest.getVerification_path());
-        mechanic.setIdPerson(personId);
+        mechanic.setIdSeller(mechanicRequest.getIdSeller());
+        mechanic.setIdCity(mechanicRequest.getIdCity());
+
+        mechanic.setLocation(mechanicRequest.getLocation());
+        mechanic.setShopName(mechanicRequest.getShopName());
+        mechanic.setShopPhoneNumber(mechanicRequest.getShopPhoneNumber());
+        mechanic.setVerificationPath(mechanicRequest.getVerificationPath());
+
         mechanic.setTransaction(transaction);
         mechanicDao.createMechanic(mechanic);
         int mechanicId = transactionDao.getLastInsertId();

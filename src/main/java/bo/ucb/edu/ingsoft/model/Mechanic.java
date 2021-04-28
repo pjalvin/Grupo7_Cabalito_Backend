@@ -2,7 +2,7 @@ package bo.ucb.edu.ingsoft.model;
 
 public class Mechanic {
     private Integer idMechanic;
-    private Integer idPerson;
+    private Integer idSeller;
     private Integer idCity;
     private String location;
     private String shopName;
@@ -12,20 +12,10 @@ public class Mechanic {
     private String verificationPath;
     private Integer status;
     private Transaction transaction;
-    private String verification_path;
+
 
     public Mechanic() {
     }
-
-
-    public String getVerification_path() {
-        return verification_path;
-    }
-
-    public void setVerification_path(String verification_path) {
-        this.verification_path = verification_path;
-    }
-
 
     public Integer getIdMechanic() {
         return idMechanic;
@@ -35,12 +25,12 @@ public class Mechanic {
         this.idMechanic = idMechanic;
     }
 
-    public Integer getIdPerson() {
-        return idPerson;
+    public Integer getIdSeller() {
+        return idSeller;
     }
 
-    public void setIdPerson(Integer idPerson) {
-        this.idPerson = idPerson;
+    public void setIdSeller(Integer idSeller) {
+        this.idSeller = idSeller;
     }
 
     public Integer getIdCity() {
@@ -119,7 +109,7 @@ public class Mechanic {
     public String toString() {
         return "Mechanic{" +
                 "idMechanic=" + idMechanic +
-                ", idPerson=" + idPerson +
+                ", idSeller=" + idSeller +
                 ", idCity=" + idCity +
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
@@ -129,7 +119,6 @@ public class Mechanic {
                 ", verificationPath='" + verificationPath + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
-                ", verification_path='" + verification_path + '\'' +
                 '}';
     }
 }

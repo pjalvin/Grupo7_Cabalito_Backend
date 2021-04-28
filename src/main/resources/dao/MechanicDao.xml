@@ -22,7 +22,7 @@
 
     <insert id="createMechanic" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         INSERT into mechanic VALUES
-        (null,#{idPerson},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verification_path},0,#{transaction.txDate},
+        (null,#{idSeller},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verification_path},2,#{transaction.txDate},
         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
     </insert>
 
