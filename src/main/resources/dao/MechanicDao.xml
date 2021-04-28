@@ -54,15 +54,13 @@
             a.location as location,
             a.shop_name as shopName,
             a.shop_phone_number as shopPhoneNumber,
-            COUNT(b.id_star) as stars,
-            round(AVG(b.score),0) as starsCount,
+            a.stars as stars,
+            a.stars_count as starsCount,
             a.verification_path as verificationPath
         FROM
-            mechanic a, star b
+            mechanic a
         WHERE
             a.id_seller = #{idSeller}
-          and a.id_mechanic = b.id_mechanic
           and a.status = 1
-        GROUP BY a.id_mechanic
     </select>
 </mapper>
