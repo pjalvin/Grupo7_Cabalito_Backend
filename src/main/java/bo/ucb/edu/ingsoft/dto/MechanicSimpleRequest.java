@@ -6,8 +6,18 @@ public class MechanicSimpleRequest {
     private String shopName;
     private Integer stars;
     private String shopPhoneNumber;
+    private Boolean qualified;
 
     public MechanicSimpleRequest() {
+        qualified=false;
+    }
+
+    public Boolean getQualified() {
+        return qualified;
+    }
+
+    public void setQualified(Boolean qualified) {
+        this.qualified = qualified;
     }
 
     public Integer getIdMechanic() {
@@ -58,6 +68,7 @@ public class MechanicSimpleRequest {
                 ", shopName='" + shopName + '\'' +
                 ", stars=" + stars +
                 ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
+                ", qualified=" + qualified +
                 '}';
     }
 }

@@ -39,6 +39,14 @@
                 stars as stars
         FROM mechanic WHERE id_mechanic = #{idMechanic} and status = 1
     </select>
+    <select id="getStars" resultType="bo.ucb.edu.ingsoft.dto.StarRequest">
+        SELECT id_star as idStar,
+        id_seller as idSeller,
+        id_mechanic as idMechanic
+        FROM star
+        WHERE id_seller=#{idSeller}
+          AND status=1
+    </select>
 
     <update id="starsValue" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic SET

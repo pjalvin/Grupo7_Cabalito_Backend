@@ -30,7 +30,9 @@ public class MechanicApi {
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MechanicSimpleRequest> mechanics(HttpServletRequest request) {
-        List<MechanicSimpleRequest> mechanic=mechanicBl.mechanics();
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
+        List<MechanicSimpleRequest> mechanic=mechanicBl.mechanics(idSeller);
         return mechanic;
     }
 
@@ -38,6 +40,8 @@ public class MechanicApi {
     public QualifyMechanicRequest qualifyMechanic(@RequestBody QualifyMechanicRequest qualifyMechanicRequest , HttpServletRequest request){
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
+            UserUtil userUtil=new UserUtil();
+        qualifyMechanicRequest.setIdUser(userUtil.getIdUser());
         return mechanicBl.qualifyMechanic(qualifyMechanicRequest,transaction);
     }
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

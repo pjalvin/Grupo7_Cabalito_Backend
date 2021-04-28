@@ -4,11 +4,7 @@ import bo.ucb.edu.ingsoft.dao.MechanicDao;
 import bo.ucb.edu.ingsoft.dao.PersonDao;
 import bo.ucb.edu.ingsoft.dao.StarDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
-import bo.ucb.edu.ingsoft.dto.MechanicRequest;
-import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
-import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
-import bo.ucb.edu.ingsoft.dto.SellerRequest;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
@@ -32,8 +28,19 @@ public class MechanicBl {
         this.transactionDao = transactionDao;
     }
 
-    public List<MechanicSimpleRequest> mechanics(){
+    public List<MechanicSimpleRequest> mechanics(Integer idSeller){
         List<MechanicSimpleRequest> mechanic=mechanicDao.mechanics();
+        List<StarRequest> stars=mechanicDao.getStars(idSeller);
+        for(int i=0;i<mechanic.size();i++)
+        {
+            for(int j=0;j<stars.size();j++)
+            {
+                if(mechanic.get(i).getIdMechanic()==stars.get(j).getIdMechanic()){
+                    mechanic.get(i).setQualified(true);
+                    break;
+                }
+            }
+        }
         return mechanic;
     }
 

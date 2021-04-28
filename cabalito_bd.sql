@@ -287,4 +287,4 @@ ALTER TABLE mechanic ADD CONSTRAINT mechanic_city FOREIGN KEY mechanic_city (id_
 -- Reference: mechanic_persona (table: mechanic)
 ALTER TABLE mechanic ADD CONSTRAINT mechanic_seller FOREIGN KEY mechanic_seller (id_seller)
     REFERENCES seller (id_seller);
-ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_seller);
+ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_seller,id_mechanic);
