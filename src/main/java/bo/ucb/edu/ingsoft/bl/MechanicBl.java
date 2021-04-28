@@ -80,7 +80,7 @@ public class MechanicBl {
         mechanicDao.updateImage(mechanic);
     }
 
-    public MechanicSellerRequest mechanicSeller(Integer sellerId){
-        return mechanicDao.mechanicSeller(sellerId);
+    public MechanicSellerRequest mechanicSeller(Integer idSeller){
+        return mechanicDao.mechanicSeller(idSeller);
     }
 }

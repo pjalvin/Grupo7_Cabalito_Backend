@@ -59,9 +59,11 @@ public class MechanicApi {
     }
 
 
-    @GetMapping(path = "/{mechanicId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public MechanicSellerRequest mechanicSeller(@PathVariable String mechanicId) {
-        return mechanicBl.mechanicSeller(Integer.parseInt(mechanicId));
+    @GetMapping(path = "/seller", produces = MediaType.APPLICATION_JSON_VALUE)
+    public MechanicSellerRequest mechanicSeller(HttpServletRequest request) {
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
+        return mechanicBl.mechanicSeller(idSeller);
     }
 
 }

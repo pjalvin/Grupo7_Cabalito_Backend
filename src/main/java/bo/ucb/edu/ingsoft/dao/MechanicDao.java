@@ -22,5 +22,5 @@ public interface MechanicDao {
 
     public void updateImage(Mechanic mechanic);
 
-    public MechanicSellerRequest mechanicSeller(Integer sellerId);
+    public MechanicSellerRequest mechanicSeller(Integer idSeller);
 }

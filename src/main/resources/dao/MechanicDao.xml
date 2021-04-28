@@ -60,7 +60,7 @@
         FROM
             mechanic a, star b
         WHERE
-            a.id_seller = #{sellerId}
+            a.id_seller = #{idSeller}
           and a.id_mechanic = b.id_mechanic
           and a.status = 1
         GROUP BY a.id_mechanic
