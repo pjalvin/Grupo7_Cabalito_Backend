@@ -288,3 +288,13 @@ ALTER TABLE mechanic ADD CONSTRAINT mechanic_city FOREIGN KEY mechanic_city (id_
 ALTER TABLE mechanic ADD CONSTRAINT mechanic_seller FOREIGN KEY mechanic_seller (id_seller)
     REFERENCES seller (id_seller);
 ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_seller,id_mechanic);
+
+-- Table: plan_pagos
+CREATE TABLE payment_plan (
+                        id_payment_plan int NOT NULL AUTO_INCREMENT,
+                        name varchar(50) NOT NULL,
+                        total numeric(6,2),
+                        time int not null,
+
+                        CONSTRAINT h_plan_payment_pk PRIMARY KEY (id_payment_plan)
+);
