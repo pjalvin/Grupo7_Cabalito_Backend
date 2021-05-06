@@ -15,7 +15,7 @@
     <insert id="createUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         INSERT into user VALUES
         (null,#{password},#{email},1,#{transaction.txDate},
-        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate},2)
     </insert>
     <update id="updateUser" parameterType="bo.ucb.edu.ingsoft.model.User">
         UPDATE user SET
