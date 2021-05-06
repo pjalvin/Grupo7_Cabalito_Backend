@@ -298,3 +298,15 @@ CREATE TABLE payment_plan (
 
                         CONSTRAINT h_plan_payment_pk PRIMARY KEY (id_payment_plan)
 );
+-- Alteracion de tablas mechanic y publicacion
+alter table mechanic add column due_date_payment date;
+alter table h_mechanic add column due_date_payment date;
+alter table publication add column due_date_payment date;
+alter table h_publication add column due_date_payment date;
+CREATE TABLE rol (
+                              id_rol int NOT NULL AUTO_INCREMENT primary key ,
+                              name varchar(50) NOT NULL);
+alter table user add column id_rol int;
+ALTER TABLE user ADD CONSTRAINT user_rol FOREIGN KEY user(id_rol)
+    REFERENCES rol (id_rol);
+alter table h_user add column id_rol int;

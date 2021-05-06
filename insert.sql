@@ -2568,3 +2568,9 @@ INSERT INTO mechanic VALUES
 (NULL,5,5,'Av. Landaeta','Solo Autos','22365894',0,0,NULL,1,NOW(),5,'192.168.10.215',NOW());
 
 COMMIT ;
+
+-- Insercion de roles
+
+insert into rol values(Null, "Administrador"),(Null, "Cliente");
+-- Actualizacion de table user
+UPDATE `user` SET `id_rol`=2;
