@@ -106,7 +106,7 @@ CREATE TRIGGER tg_h_mechanic_insert
 AFTER INSERT ON mechanic
 FOR EACH ROW
 BEGIN
-	INSERT INTO h_mechanic (id_mechanic,id_seller,id_city,location,shop_name,shop_phone_number,verification_path,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update)
+	INSERT INTO h_mechanic (id_mechanic,id_seller,id_city,location,shop_name,shop_phone_number,verification_path,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update,due_date_payment)
     VALUES (NEW.id_mechanic,NEW.id_seller,NEW.id_city,NEW.location,NEW.shop_name,NEW.shop_phone_number,NEW.verification_path,NEW.stars,NEW.stars_count,NEW.status
     ,NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update, NEW.due_date_payment);
 END;
@@ -119,7 +119,7 @@ CREATE TRIGGER tg_h_mechanic_update
 AFTER UPDATE ON mechanic
 FOR EACH ROW
 BEGIN
-	INSERT INTO h_mechanic (id_mechanic,id_seller,id_city,location,shop_name,shop_phone_number,verification_path,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update)
+	INSERT INTO h_mechanic (id_mechanic,id_seller,id_city,location,shop_name,shop_phone_number,verification_path,stars,stars_count,status,tx_date,tx_id_user,tx_host,tx_update,due_date_payment)
     VALUES (NEW.id_mechanic,NEW.id_seller,NEW.id_city,NEW.location,NEW.shop_name,NEW.shop_phone_number,NEW.verification_path,NEW.stars,NEW.stars_count,NEW.status
     ,NEW.tx_date,NEW.tx_id_user,NEW.tx_host,NEW.tx_update, NEW.due_date_payment);
 END;
