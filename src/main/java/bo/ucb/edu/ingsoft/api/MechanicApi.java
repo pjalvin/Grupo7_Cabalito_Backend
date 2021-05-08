@@ -1,10 +1,7 @@
 package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.MechanicBl;
-import bo.ucb.edu.ingsoft.dto.MechanicSellerRequest;
-import bo.ucb.edu.ingsoft.dto.MechanicSimpleRequest;
-import bo.ucb.edu.ingsoft.dto.QualifyMechanicRequest;
-import bo.ucb.edu.ingsoft.dto.MechanicRequest;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.Mechanic;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -68,6 +65,15 @@ public class MechanicApi {
         UserUtil userUtil=new UserUtil();
         Integer idSeller=userUtil.getIdSeller();
         return mechanicBl.mechanicSeller(idSeller);
+    }
+
+    @RequestMapping(path="/paymentPlan",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void updateMechanicPlan(@RequestParam Integer planId, HttpServletRequest request){
+        TransactionUtil transactionUtil = new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        UserUtil userUtil=new UserUtil();
+        Integer idSeller=userUtil.getIdSeller();
+        mechanicBl.updateMechanicPlan(transaction,idSeller,planId);
     }
 
 }

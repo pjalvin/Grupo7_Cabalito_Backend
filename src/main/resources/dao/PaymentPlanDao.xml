@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.PaymentPlanDao">
+    <resultMap type="bo.ucb.edu.ingsoft.dto.PaymentPlanRequest" id="getPaymentPlanMap">
+        <result column="idPaymentPlan" property="idPaymentPlan"/>
+        <result column="namePlan" property="namePlan"/>
+        <result column="planCode" property="planCode"/>
+    </resultMap>
+    <select  id="getPaymentPlan" resultMap="getPaymentPlanMap">
+        SELECT a.id_payment_plan as idPaymentPlan,
+               a.name as namePlan,
+               a.plan_code as planCode
+        FROM payment_plan a
+    </select>
+    <select  id="getTimePlan" resultType="java.lang.Integer">
+        SELECT a.time as timePlan
+        FROM payment_plan a
+        WHERE a.id_payment_plan = #{idPlan}
+    </select>
+</mapper>

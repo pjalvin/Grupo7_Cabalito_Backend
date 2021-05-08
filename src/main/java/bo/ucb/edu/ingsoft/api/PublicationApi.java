@@ -1,10 +1,7 @@
 package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.PublicationBl;
-import bo.ucb.edu.ingsoft.dto.ImagePublicationRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
-import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
+import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.Brand;
 import bo.ucb.edu.ingsoft.model.City;
 import bo.ucb.edu.ingsoft.model.Color;
@@ -101,4 +98,6 @@ public class PublicationApi {
     public List<City> getCities(){
         return publicationBl.getCities();
     }
+
+
 }

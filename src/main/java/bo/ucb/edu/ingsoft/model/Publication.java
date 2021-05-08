@@ -18,6 +18,7 @@ public class Publication {
     private Date datePublication;
     private boolean status;
     private Transaction transaction;
+    private Date dueDatePayment;
 
     public Publication() {
     }
@@ -142,6 +143,14 @@ public class Publication {
         this.datePublication = datePublication;
     }
 
+    public Date getDueDatePayment() {
+        return dueDatePayment;
+    }
+
+    public void setDueDatePayment(Date dueDatePayment) {
+        this.dueDatePayment = dueDatePayment;
+    }
+
     @Override
     public String toString() {
         return "Publication{" +
@@ -150,7 +159,7 @@ public class Publication {
                 ", idBrand=" + idBrand +
                 ", idColor=" + idColor +
                 ", idCity=" + idCity +
-                ", titulo='" + title + '\'' +
+                ", title='" + title + '\'' +
                 ", model=" + model +
                 ", doorNumber=" + doorNumber +
                 ", licensePlate='" + licensePlate + '\'' +
@@ -160,6 +169,8 @@ public class Publication {
                 ", datePublication=" + datePublication +
                 ", status=" + status +
                 ", transaction=" + transaction +
+                ", dueDatePayment=" + dueDatePayment +
                 '}';
     }
+
 }

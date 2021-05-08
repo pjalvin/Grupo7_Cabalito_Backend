@@ -1,5 +1,6 @@
 GET http://localhost:8080/mechanic
 Accept: application/json
+Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNTExMTYyLCJleHAiOjE2MjA1OTc1NjJ9.euLznRaKFmMXR0KbnR84WblslW-QLPcf3tFWiwFLqt64IDoqFyXCRWWY5FhkkBZjJYPpHmLajf5N6Ma6IJGOmA
 
 ###
 
@@ -18,9 +19,14 @@ Content-Type: application/json
 GET http://localhost:8080/mechanic/seller
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNTExMTYyLCJleHAiOjE2MjA1OTc1NjJ9.euLznRaKFmMXR0KbnR84WblslW-QLPcf3tFWiwFLqt64IDoqFyXCRWWY5FhkkBZjJYPpHmLajf5N6Ma6IJGOmA
 
 ###
 
+PUT http://localhost:8080/mechanic/paymentPlan?planId=2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNTExMTYyLCJleHAiOjE2MjA1OTc1NjJ9.euLznRaKFmMXR0KbnR84WblslW-QLPcf3tFWiwFLqt64IDoqFyXCRWWY5FhkkBZjJYPpHmLajf5N6Ma6IJGOmA
 
 
 

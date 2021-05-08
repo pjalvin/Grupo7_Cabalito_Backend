@@ -72,4 +72,21 @@
             a.id_seller = #{idSeller}
           and a.status !=0
     </select>
+
+    <select  id="findByMechanicId" resultType="java.lang.Integer">
+        SELECT a.id_mechanic as idMechanic
+        FROM mechanic a
+        WHERE a.id_seller = #{idSeller}
+    </select>
+
+    <update id="updateMechanicPlan" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        UPDATE mechanic  SET
+            due_date_payment = #{dueDatePayment},
+            tx_date = #{transaction.txDate},
+            tx_id_user = #{transaction.txIdUser},
+            tx_host = #{transaction.txHost},
+            tx_update = #{transaction.txUpdate}
+        WHERE id_mechanic = #{idMechanic}
+         and status = 1
+    </update>
 </mapper>

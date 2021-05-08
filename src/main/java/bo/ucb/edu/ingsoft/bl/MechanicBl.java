@@ -1,9 +1,6 @@
 package bo.ucb.edu.ingsoft.bl;
 
-import bo.ucb.edu.ingsoft.dao.MechanicDao;
-import bo.ucb.edu.ingsoft.dao.PersonDao;
-import bo.ucb.edu.ingsoft.dao.StarDao;
-import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dao.*;
 import bo.ucb.edu.ingsoft.dto.*;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
@@ -12,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,12 +19,14 @@ public class MechanicBl {
     private StarDao starDao;
     private TransactionDao transactionDao;
     private PersonDao personDao;
+    private PaymentPlanDao paymentPlanDao;
 
     @Autowired
-    public MechanicBl(MechanicDao mechanicDao,StarDao starDao, TransactionDao transactionDao){
+    public MechanicBl(MechanicDao mechanicDao,StarDao starDao, TransactionDao transactionDao, PaymentPlanDao paymentPlanDao){
         this.mechanicDao = mechanicDao;
         this.starDao = starDao;
         this.transactionDao = transactionDao;
+        this.paymentPlanDao = paymentPlanDao;
     }
 
     public List<MechanicSimpleRequest> mechanics(Integer idSeller){
@@ -90,4 +91,20 @@ public class MechanicBl {
     public MechanicSellerRequest mechanicSeller(Integer idSeller){
         return mechanicDao.mechanicSeller(idSeller);
     }
+
+    public void updateMechanicPlan(Transaction transaction,Integer idSeller,Integer idPlan){
+        Integer timePlan = paymentPlanDao.getTimePlan(idPlan);
+        Integer idMechanic = mechanicDao.findByMechanicId(idSeller);
+        Mechanic mechanic = new Mechanic();
+        Date datePayment;
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DAY_OF_YEAR, timePlan);
+        datePayment = c.getTime();
+
+        mechanic.setIdMechanic(idMechanic);
+        mechanic.setTransaction(transaction);
+        mechanic.setDueDatePayment(datePayment);
+        mechanicDao.updateMechanicPlan(mechanic);
+    }
+
 }
