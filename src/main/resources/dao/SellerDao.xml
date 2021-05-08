@@ -119,6 +119,41 @@
             p.status = 1
     </select>
 
+    <resultMap type="bo.ucb.edu.ingsoft.dto.SellerRequest" id="getSellersMap">
+        <result column="idSeller" property="idSeller"/>
+        <result column="idPerson" property="idPerson"/>
+        <result column="idUser" property="idUser"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="firstName" property="firstName"/>
+        <result column="lastName" property="lastName"/>
+        <result column="phoneNumber" property="phoneNumber"/>
+        <result column="imagePath" property="imagePath"/>
+    </resultMap>
+
+    <select id="getSellers" resultMap="getSellersMap">
+        SELECT
+            s.id_seller as idSeller,
+            s.id_person as idPerson,
+            s.id_user as idUser,
+            u.password as password,
+            u.email as email,
+            p.first_name as firstName,
+            p.last_name as lastName,
+            p.phone_number as phoneNumber,
+            s.image_path as imagePath
+        FROM seller s
+                 INNER JOIN user u on
+            s.id_user=u.id_user
+                 INNER JOIN person p on
+            s.id_person=p.id_person
+        WHERE
+            u.id_rol = 2
+          and s.status = 1
+          and u.status = 1
+          and p.status = 1
+    </select>
+
 </mapper>
 
 

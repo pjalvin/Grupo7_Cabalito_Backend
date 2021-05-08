@@ -83,3 +83,7 @@ Content-Type: application/json
   "phoneNumber": "456321",
   "imagePath": "Hermoso auto con todas las prestaciones y confort"
 }
+
+###
+GET http://localhost:8080/seller/users
+Accept: application/json

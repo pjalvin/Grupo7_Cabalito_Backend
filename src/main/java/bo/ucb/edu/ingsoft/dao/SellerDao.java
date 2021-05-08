@@ -24,4 +24,6 @@ public interface SellerDao {
     public void updateSeller(Seller seller);
     public void updateImage(Seller seller);
     public List<PublicationSimpleRequest> publications(Integer idSeller, Integer i, Integer n);
+
+    List<SellerRequest> getSellers();
 }

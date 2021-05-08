@@ -95,5 +95,8 @@ public class SellerBl {
         return publications;
     }
 
+    public List<SellerRequest> getSellers(){
+        return sellerDao.getSellers();
+    }
 
 }

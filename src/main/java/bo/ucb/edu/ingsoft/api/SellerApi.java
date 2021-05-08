@@ -71,4 +71,9 @@ public class SellerApi {
         return pubSeller;
     }
 
+    @GetMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<SellerRequest> getSellers(){
+        return sellerBl.getSellers();
+    }
+
 }
