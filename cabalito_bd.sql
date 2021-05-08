@@ -293,6 +293,7 @@ ALTER TABLE star ADD CONSTRAINT unic_id UNIQUE(id_seller,id_mechanic);
 CREATE TABLE payment_plan (
                         id_payment_plan int NOT NULL AUTO_INCREMENT,
                         name varchar(50) NOT NULL,
+                        plan_code varchar(50) NOT NULL,
                         total numeric(6,2),
                         time int not null,
 
