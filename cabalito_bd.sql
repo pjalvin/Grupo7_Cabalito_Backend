@@ -73,7 +73,7 @@ CREATE TABLE h_publication (
     description varchar(255) NOT NULL,
     motor varchar(100) NOT NULL,
     price numeric(9,2) NOT NULL,
-    date_publication datetime NOT NULL,
+    date datetime NOT NULL,
     status tinyint NOT NULL,
     tx_date datetime NOT NULL,
     tx_id_user int NOT NULL,

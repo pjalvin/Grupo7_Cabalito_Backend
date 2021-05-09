@@ -1,5 +1,6 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.util.Date;
 import java.util.List;
 
 public class PublicationViewRequest {
@@ -21,6 +22,16 @@ public class PublicationViewRequest {
     private String City; // id
     private Integer idCity;
     private List<ImagePublicationRequest> images;
+    private Date dueDatePayment;
+
+    public Date getDueDatePayment() {
+        return dueDatePayment;
+    }
+
+    public void setDueDatePayment(Date dueDatePayment) {
+        this.dueDatePayment = dueDatePayment;
+    }
+
 
     public PublicationViewRequest() {
     }
@@ -172,6 +183,7 @@ public class PublicationViewRequest {
                 ", City='" + City + '\'' +
                 ", idCity=" + idCity +
                 ", images=" + images +
+                ", dueDatePayment=" + dueDatePayment +
                 '}';
     }
 }

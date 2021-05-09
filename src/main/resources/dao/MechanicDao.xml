@@ -18,6 +18,8 @@
                stars as stars,
                shop_phone_number as shopPhoneNumber
         FROM mechanic WHERE status = 1
+        ORDER BY IF(due_date_payment>=curdate(),due_date_payment,RAND())
+            DESC
     </select>
 
     <insert id="createMechanic" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">

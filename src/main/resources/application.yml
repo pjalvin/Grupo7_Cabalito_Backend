@@ -24,13 +24,17 @@ logging:
       spring:
         ibatis:
           UserMapper=DEBUG:
+
 mybatis:
   configuration:
     default-fetch-size: 100
     default-statement-timeout: 30
-  mapper-locations: classpath:/dao/*Dao.xml
-  log4j:
-    logger:
-      bo.ucb.edu.ingsoft.dao.PublicationDao=DEBUG
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
 
+  mapper-locations: classpath:/dao/*Dao.xml
+log4j:
+  logger:
+    org:
+      mybatis:
+        PublicationDao=DEBUG:
 

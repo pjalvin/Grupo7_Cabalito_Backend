@@ -26,7 +26,8 @@
             a.door_number as doorNumber,
             a.id_seller as idSeller,
             f.city as City,
-            f.id_city as idCity
+            f.id_city as idCity,
+            a.due_date_payment as dueDatePayment
            from publication a
            INNER JOIN brand b on
            a.id_brand=b.id_brand
@@ -197,7 +198,7 @@
         AND publication.id_seller!=#{sellerId}
         )
 
-        ORDER BY publication.date DESC
+        ORDER BY IF(publication.due_date_payment>=curdate(),publication.due_date_payment,publication.date ) DESC
         <if test="publicationRequest.idPublication==null">
             LIMIT #{n} OFFSET #{i}
         </if>
@@ -230,5 +231,6 @@
         WHERE
             id_publication=#{idPublication}
           AND id_seller=#{idSeller}
+            AND status=1
     </update>
 </mapper>

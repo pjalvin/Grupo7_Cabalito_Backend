@@ -102,6 +102,7 @@ public class PublicationBl {
             c.add(Calendar.DAY_OF_YEAR, timePlan);
             datePayment = c.getTime();
             publication.setDueDatePayment(datePayment);
+            System.out.println(publication.toString());
             publicationDao.updatePublicationPlan(publication);
         }else{
             publicationDao.update(publication);

@@ -1,5 +1,7 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.util.Date;
+
 public class PublicationRequest {
     private Integer idPublication;
     private Integer idSeller;
@@ -134,10 +136,9 @@ public class PublicationRequest {
     public boolean isStatus() {
         return status;
     }
-
     @Override
     public String toString() {
-        return "PublicationPlanRequest{" +
+        return "PublicationRequest{" +
                 "idPublication=" + idPublication +
                 ", idSeller=" + idSeller +
                 ", idBrand=" + idBrand +
