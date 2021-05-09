@@ -66,7 +66,6 @@ public class PublicationBl {
             timePlan = paymentPlanDao.getTimePlan(idPlan);
             c.add(Calendar.DAY_OF_YEAR, timePlan);
             datePayment = c.getTime();
-            System.out.println(datePayment);
             publication.setDueDatePayment(datePayment);
             publicationDao.createPublicationPlan(publication);
         }else {
@@ -102,7 +101,6 @@ public class PublicationBl {
             timePlan = paymentPlanDao.getTimePlan(idPlan);
             c.add(Calendar.DAY_OF_YEAR, timePlan);
             datePayment = c.getTime();
-            System.out.println(datePayment);
             publication.setDueDatePayment(datePayment);
             publicationDao.updatePublicationPlan(publication);
         }else{
