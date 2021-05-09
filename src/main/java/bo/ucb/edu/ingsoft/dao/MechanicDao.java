@@ -27,4 +27,7 @@ public interface MechanicDao {
     public MechanicSellerRequest mechanicSeller(Integer idSeller);
 
     public void updateMechanicPlan(Mechanic mechanic);
+
+    List<MechanicRequest> getMechanics();
+    List<MechanicRequest> getMechanicShop();
 }

@@ -23,7 +23,7 @@
     <insert id="createMechanic" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         INSERT into mechanic VALUES
         (null,#{idSeller},#{idCity},#{location},#{shopName},#{shopPhoneNumber},0,0,#{verificationPath},2,#{transaction.txDate},
-        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate},null)
     </insert>
     <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic SET
@@ -88,4 +88,68 @@
         WHERE id_mechanic = #{idMechanic}
          and status = 1
     </update>
+
+    <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicsMap">
+        <result column="idMechanic" property="idMechanic"/>
+        <result column="idCity" property="idCity"/>
+        <result column="idSeller" property="idSeller"/>
+        <result column="location" property="location"/>
+        <result column="shopName" property="shopName"/>
+        <result column="shopPhoneNumber" property="shopPhoneNumber"/>
+        <result column="stars" property="stars"/>
+        <result column="starsCount" property="starsCount"/>
+        <result column="verificationPath" property="verificationPath"/>
+        <result column="dueDatePayment" property="dueDatePayment"/>
+    </resultMap>
+
+    <select id="getMechanics" resultMap="getMechanicsMap">
+        SELECT
+            a.id_mechanic as idMechanic,
+            a.id_city as idCity,
+            a.id_seller as idSeller,
+            a.location as location,
+            a.shop_name as shopName,
+            a.shop_phone_number as shopPhoneNumber,
+            a.stars as stars,
+            a.stars_count as starsCount,
+            a.verification_path as verificationPath,
+            a.status as status,
+            a.due_date_payment as dueDatePayment
+        FROM
+            mechanic a
+        WHERE
+            a.status != 0
+    </select>
+
+    <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicShopMap">
+        <result column="idMechanic" property="idMechanic"/>
+        <result column="idCity" property="idCity"/>
+        <result column="idSeller" property="idSeller"/>
+        <result column="location" property="location"/>
+        <result column="shopName" property="shopName"/>
+        <result column="shopPhoneNumber" property="shopPhoneNumber"/>
+        <result column="stars" property="stars"/>
+        <result column="starsCount" property="starsCount"/>
+        <result column="verificationPath" property="verificationPath"/>
+        <result column="dueDatePayment" property="dueDatePayment"/>
+    </resultMap>
+
+    <select id="getMechanicShop" resultMap="getMechanicShopMap">
+        SELECT
+            a.id_mechanic as idMechanic,
+            a.id_city as idCity,
+            a.id_seller as idSeller,
+            a.location as location,
+            a.shop_name as shopName,
+            a.shop_phone_number as shopPhoneNumber,
+            a.stars as stars,
+            a.stars_count as starsCount,
+            a.verification_path as verificationPath,
+            a.status as status,
+            a.due_date_payment as dueDatePayment
+        FROM
+            mechanic a
+        WHERE
+            a.status = 0
+    </select>
 </mapper>
