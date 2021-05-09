@@ -6,6 +6,7 @@ public class PublicationRequest {
     private Integer idBrand;
     private Integer idColor;
     private Integer idCity;
+    private Integer idPlan;
     private String title;
     private Integer model;
     private Integer doorNumber;
@@ -56,6 +57,14 @@ public class PublicationRequest {
 
     public void setIdCity(Integer idCity) {
         this.idCity = idCity;
+    }
+
+    public Integer getIdPlan() {
+        return idPlan;
+    }
+
+    public void setIdPlan(Integer idPlan) {
+        this.idPlan = idPlan;
     }
 
     public Integer getModel() {
@@ -128,13 +137,14 @@ public class PublicationRequest {
 
     @Override
     public String toString() {
-        return "PublicationRequest{" +
+        return "PublicationPlanRequest{" +
                 "idPublication=" + idPublication +
                 ", idSeller=" + idSeller +
                 ", idBrand=" + idBrand +
                 ", idColor=" + idColor +
                 ", idCity=" + idCity +
-                ", titulo='" + title + '\'' +
+                ", idPlan=" + idPlan +
+                ", title='" + title + '\'' +
                 ", model=" + model +
                 ", doorNumber=" + doorNumber +
                 ", licensePlate='" + licensePlate + '\'' +

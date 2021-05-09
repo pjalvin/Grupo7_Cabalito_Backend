@@ -10,20 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PublicationBl {
     private PublicationDao publicationDao;
     private TransactionDao transactionDao;
+    private PaymentPlanDao paymentPlanDao;
 
     @Autowired
-    public PublicationBl(PublicationDao publicationDao,TransactionDao transactionDao) {
+    public PublicationBl(PublicationDao publicationDao,TransactionDao transactionDao, PaymentPlanDao paymentPlanDao) {
         this.publicationDao = publicationDao;
         this.transactionDao = transactionDao;
+        this.paymentPlanDao = paymentPlanDao;
     }
 
 
@@ -44,6 +43,10 @@ public class PublicationBl {
     public PublicationRequest create(PublicationRequest publicationRequest, Transaction transaction){
 
         Publication publication=new Publication();
+        Date datePayment;
+        Calendar c = Calendar.getInstance();
+        Integer timePlan;
+        Integer idPlan = publicationRequest.getIdPlan();
         publication.setDescription(publicationRequest.getDescription());
         publication.setDoorNumber(publicationRequest.getDoorNumber());
         publication.setIdBrand(publicationRequest.getIdBrand());
@@ -59,15 +62,27 @@ public class PublicationBl {
         publication.setStatus(publicationRequest.getStatus());
         publication.setTransaction(transaction);
         publication.setDatePublication(new Date());
-        publicationDao.create(publication);
+        if(idPlan != null){
+            timePlan = paymentPlanDao.getTimePlan(idPlan);
+            c.add(Calendar.DAY_OF_YEAR, timePlan);
+            datePayment = c.getTime();
+            System.out.println(datePayment);
+            publication.setDueDatePayment(datePayment);
+            publicationDao.createPublicationPlan(publication);
+        }else {
+            publicationDao.create(publication);
+        }
         Integer publicationId=transactionDao.getLastInsertId();
         publicationRequest.setIdPublication(publicationId);
         return publicationRequest;
     }
 
     public PublicationRequest update(PublicationRequest publicationRequest, Transaction transaction,Integer idSeller){
-
         Publication publication=new Publication();
+        Date datePayment;
+        Calendar c = Calendar.getInstance();
+        Integer timePlan;
+        Integer idPlan = publicationRequest.getIdPlan();
         publication.setIdPublication(publicationRequest.getIdPublication());
         publication.setDescription(publicationRequest.getDescription());
         publication.setDoorNumber(publicationRequest.getDoorNumber());
@@ -79,12 +94,20 @@ public class PublicationBl {
         publication.setTitle(publicationRequest.getTitle());
         publication.setModel(publicationRequest.getModel());
         publication.setMotor(publicationRequest.getMotor());
-        publication.setModel(publicationRequest.getModel());
         publication.setPrice(publicationRequest.getPrice());
         publication.setStatus(publicationRequest.getStatus());
         publication.setTransaction(transaction);
         publication.setDatePublication(new Date());
-        publicationDao.update(publication);
+        if(idPlan != null){
+            timePlan = paymentPlanDao.getTimePlan(idPlan);
+            c.add(Calendar.DAY_OF_YEAR, timePlan);
+            datePayment = c.getTime();
+            System.out.println(datePayment);
+            publication.setDueDatePayment(datePayment);
+            publicationDao.updatePublicationPlan(publication);
+        }else{
+            publicationDao.update(publication);
+        }
         return publicationRequest;
     }
 
@@ -143,5 +166,4 @@ public class PublicationBl {
             publicationViewRequest.setImages(publicationDao.publicationPaths(idPublication));
         return publicationViewRequest;
     }
-
 }

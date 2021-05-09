@@ -2571,8 +2571,8 @@ COMMIT ;
 
 INSERT INTO payment_plan VALUES
 (NULL,"1 semana por 6.99BS.","android.test.purchased",6.99,7),
-(NULL,"30 dias  por 25BS.","android.test.purchased",25.00,7),
-(NULL,"1 año  por 100BS.","android.test.purchased",100.00,7);
+(NULL,"30 dias  por 25BS.","android.test.purchased",25.00,30),
+(NULL,"1 año  por 100BS.","android.test.purchased",100.00,365);
 
 -- Insercion de roles
 

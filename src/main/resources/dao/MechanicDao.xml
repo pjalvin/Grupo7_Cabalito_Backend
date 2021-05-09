@@ -82,7 +82,6 @@
     <update id="updateMechanicPlan" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic  SET
             due_date_payment = #{dueDatePayment},
-            tx_date = #{transaction.txDate},
             tx_id_user = #{transaction.txIdUser},
             tx_host = #{transaction.txHost},
             tx_update = #{transaction.txUpdate}

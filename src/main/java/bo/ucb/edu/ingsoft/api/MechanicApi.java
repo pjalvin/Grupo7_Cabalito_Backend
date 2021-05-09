@@ -68,12 +68,12 @@ public class MechanicApi {
     }
 
     @RequestMapping(path="/paymentPlan",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void updateMechanicPlan(@RequestParam Integer planId, HttpServletRequest request){
+    public void updateMechanicPlan(@RequestParam Integer idPlan, HttpServletRequest request){
         TransactionUtil transactionUtil = new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
         UserUtil userUtil=new UserUtil();
         Integer idSeller=userUtil.getIdSeller();
-        mechanicBl.updateMechanicPlan(transaction,idSeller,planId);
+        mechanicBl.updateMechanicPlan(transaction,idSeller,idPlan);
     }
 
 }

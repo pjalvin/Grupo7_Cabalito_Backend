@@ -93,18 +93,20 @@ public class MechanicBl {
     }
 
     public void updateMechanicPlan(Transaction transaction,Integer idSeller,Integer idPlan){
-        Integer timePlan = paymentPlanDao.getTimePlan(idPlan);
         Integer idMechanic = mechanicDao.findByMechanicId(idSeller);
         Mechanic mechanic = new Mechanic();
         Date datePayment;
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_YEAR, timePlan);
-        datePayment = c.getTime();
-
+        Integer timePlan;
         mechanic.setIdMechanic(idMechanic);
         mechanic.setTransaction(transaction);
-        mechanic.setDueDatePayment(datePayment);
-        mechanicDao.updateMechanicPlan(mechanic);
+        if(idPlan != null){
+           timePlan = paymentPlanDao.getTimePlan(idPlan);
+           c.add(Calendar.DAY_OF_YEAR, timePlan);
+           datePayment = c.getTime();
+           mechanic.setDueDatePayment(datePayment);
+           mechanicDao.updateMechanicPlan(mechanic);
+        }
     }
 
 }

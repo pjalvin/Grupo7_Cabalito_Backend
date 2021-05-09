@@ -99,5 +99,4 @@ public class PublicationApi {
         return publicationBl.getCities();
     }
 
-
 }

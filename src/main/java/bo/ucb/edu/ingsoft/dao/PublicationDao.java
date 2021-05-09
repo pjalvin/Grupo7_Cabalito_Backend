@@ -14,6 +14,8 @@ public interface PublicationDao {
     public void create(Publication publication);
     public void delete(Publication publication);
     public void update(Publication publication);
+    public void createPublicationPlan(Publication publication);
+    public void updatePublicationPlan(Publication publication);
     public void createImagePublication(List<ImagePublication> imagePublications);
     public void deleteImagePublication(ImagePublication image);
     public PublicationViewRequest publicationView(Integer idPublication);
@@ -23,4 +25,6 @@ public interface PublicationDao {
     public List<Color> colors();
     public List<City> cities();
     public List<Brand> brands();
+
+
 }

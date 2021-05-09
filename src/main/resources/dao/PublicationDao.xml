@@ -7,7 +7,7 @@
         INSERT into Publication VALUES
         (null,#{idSeller},#{idBrand},#{idColor},#{idCity},#{title},#{model},
         #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
-        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate})
+        #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate},null )
     </insert>
 
     <select  id="publicationView" resultType="bo.ucb.edu.ingsoft.dto.PublicationViewRequest">
@@ -202,4 +202,33 @@
             LIMIT #{n} OFFSET #{i}
         </if>
     </select>
+
+    <insert id="createPublicationPlan" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        INSERT into Publication VALUES
+        (null,#{idSeller},#{idBrand},#{idColor},#{idCity},#{title},#{model},
+         #{doorNumber},#{licensePlate},#{description},#{motor},#{price},#{datePublication},1,#{transaction.txDate},
+         #{transaction.txIdUser},#{transaction.txHost},#{transaction.txUpdate},#{dueDatePayment})
+    </insert>
+    <update id="updatePublicationPlan" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        UPDATE publication set
+            id_brand=#{idBrand},
+            id_color=#{idColor},
+            id_city=#{idCity},
+            title=#{title},
+            model=#{model},
+            door_number=#{doorNumber},
+            license_plate=#{licensePlate},
+            description=#{description},
+            motor=#{motor},
+            price=#{price},
+            date=#{datePublication},
+            tx_id_user=#{transaction.txIdUser},
+            tx_host=#{transaction.txHost},
+            tx_update=#{transaction.txUpdate},
+            status=1,
+            due_date_payment = #{dueDatePayment}
+        WHERE
+            id_publication=#{idPublication}
+          AND id_seller=#{idSeller}
+    </update>
 </mapper>
