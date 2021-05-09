@@ -1,5 +1,7 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.util.Date;
+
 public class MechanicSellerRequest {
     private Integer idSeller;
     private Integer idCity;
@@ -10,6 +12,7 @@ public class MechanicSellerRequest {
     private Integer starsCount;
     private String verificationPath;
     private Integer status;
+    private Date dueDatePayment;
 
     public Integer getStatus() {
         return status;
@@ -20,6 +23,14 @@ public class MechanicSellerRequest {
     }
 
     public MechanicSellerRequest() {
+    }
+
+    public Date getDueDatePayment() {
+        return dueDatePayment;
+    }
+
+    public void setDueDatePayment(Date dueDatePayment) {
+        this.dueDatePayment = dueDatePayment;
     }
 
     public Integer getIdSeller() {
@@ -98,6 +109,7 @@ public class MechanicSellerRequest {
                 ", starsCount=" + starsCount +
                 ", verificationPath='" + verificationPath + '\'' +
                 ", status=" + status +
+                ", dueDatePayment=" + dueDatePayment +
                 '}';
     }
 }

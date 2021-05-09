@@ -65,6 +65,7 @@
             a.stars as stars,
             a.stars_count as starsCount,
             a.verification_path as verificationPath,
+            a.due_date_payment as dueDatePayment,
         a.status as status
         FROM
             mechanic a
