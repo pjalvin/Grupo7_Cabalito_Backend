@@ -9,6 +9,7 @@ import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.util.StorageUtil;
 import bo.ucb.edu.ingsoft.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,6 @@ public class SellerBl {
     }
     public SellerRequest update(SellerRequest sellerRequest, Transaction transaction){
         SellerRequest sellerRe = sellerDao.findBySellerId(userUtil.getIdSeller());
-        Seller seller=new Seller();
         Person person = new Person();
         person.setFirstName(sellerRequest.getFirstName());
         person.setLastName(sellerRequest.getLastName());
@@ -97,6 +97,13 @@ public class SellerBl {
 
     public List<SellerRequest> getSellers(){
         return sellerDao.getSellers();
+    }
+    public void delete(Integer idSeller, Transaction transaction){
+        Seller seller=new Seller();
+        seller.setStatus(0);
+        seller.setIdSeller(idSeller);
+        seller.setTransaction(transaction);
+        sellerDao.deleteSeller(seller);
     }
 
 }

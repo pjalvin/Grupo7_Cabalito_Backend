@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.PersonDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.model.Person;
+import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,12 @@ public class PersonBl {
         int personId=transactionDao.getLastInsertId();
         person.setIdPerson(personId);
         return person;
+    }
+    public void delete(Integer idPerson, Transaction transaction){
+        Person person = new Person();
+        person.setStatus(0);
+        person.setIdSeller(idPerson);
+        person.setTransaction(transaction);
+        personDao.deletePerson(person);
     }
 }
