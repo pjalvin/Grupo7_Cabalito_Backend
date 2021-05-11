@@ -40,4 +40,12 @@ public class LoginApi {
 
         return loginBl.SignIn(userRequest,transaction);
     }
+    @RequestMapping(path="signin/Admi",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserRequest SignInAdmi(@RequestBody UserRequest userRequest, HttpServletRequest request) {
+        System.out.println(userRequest);
+        TransactionUtil transactionUtil = new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+
+        return loginBl.SignInAdmi(userRequest,transaction);
+    }
 }

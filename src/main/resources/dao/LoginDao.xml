@@ -9,6 +9,16 @@
         FROM user u
         WHERE
             u.email = #{email} and
-            u.status = 1
+            u.status = 1 and
+            u.id_rol = 2
+    </select>
+    <select id="findByEmailAdmi" resultType="bo.ucb.edu.ingsoft.dto.UserRequest">
+        SELECT u.id_user as idUser,
+        u.password as password
+        FROM user u
+        WHERE
+            u.email = #{email} and
+            u.status = 1 and
+            u.id_rol = 1
     </select>
 </mapper>
