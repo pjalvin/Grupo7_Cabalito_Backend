@@ -24,4 +24,14 @@
         WHERE id_user=#{idUser} and
             status = 1
     </update>
+    <delete id="deleteUser" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+        UPDATE user set
+        status=#{status},
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate}
+        WHERE
+        id_user=#{idUser} and
+        status=1
+    </delete>
 </mapper>
