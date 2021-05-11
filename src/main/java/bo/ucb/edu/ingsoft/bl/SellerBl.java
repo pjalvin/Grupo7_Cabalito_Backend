@@ -100,14 +100,18 @@ public class SellerBl {
     }
     public void delete(Integer idSeller, Transaction transaction){
         Seller seller=new Seller();
+        seller.setStatus(0);
+        seller.setIdSeller(idSeller);
+        seller.setTransaction(transaction);
+        SellerRequest sellerRequest = new SellerRequest();
         Person person = new Person();
         User user = new User();
-        sellerDao.findBySellerId(idSeller);
+        sellerRequest = sellerDao.findBySellerId(idSeller);
         user.setStatus("0");
-        user.setIdUser(seller.getIdUser());
+        user.setIdUser(sellerRequest.getIdUser());
         user.setTransaction(transaction);
         person.setStatus(0);
-        person.setIdSeller(seller.getIdPerson());
+        person.setIdPerson(sellerRequest.getIdPerson());
         person.setTransaction(transaction);
         seller.setStatus(0);
         seller.setIdSeller(idSeller);

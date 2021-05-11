@@ -26,9 +26,9 @@
         WHERE id_person=#{idPerson} and
             status = 1
     </update>
-    <delete id="deletePerson" parameterType="bo.ucb.edu.ingsoft.model.Publication">
+    <delete id="deletePerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
         UPDATE person set
-        status=#{status},
+        status=0,
         tx_id_user=#{transaction.txIdUser},
         tx_host=#{transaction.txHost},
         tx_update=#{transaction.txUpdate}
