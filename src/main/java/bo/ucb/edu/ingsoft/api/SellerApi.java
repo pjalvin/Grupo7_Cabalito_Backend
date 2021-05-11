@@ -76,4 +76,11 @@ public class SellerApi {
         return sellerBl.getSellers();
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@RequestParam Integer idSeller, HttpServletRequest request) {
+        TransactionUtil transactionUtil=new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        sellerBl.delete(idSeller, transaction);
+        return "Usuario eliminada";
+    }
 }
