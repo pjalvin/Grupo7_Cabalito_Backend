@@ -26,6 +26,7 @@ public interface SellerDao {
     public void updateImage(Seller seller);
     public List<PublicationSimpleRequest> publications(Integer idSeller, Integer i, Integer n);
 
-    List<SellerRequest> getSellers();
+    List<SellerRequest> getSellers(Integer  i, Integer n);
+    Integer getTotalSellers();
     public void deleteSeller(Seller seller);
 }

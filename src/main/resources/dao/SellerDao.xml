@@ -152,6 +152,19 @@
           and s.status = 1
           and u.status = 1
           and p.status = 1
+        LIMIT #{n} OFFSET #{i}
+    </select>
+    <select  id="getTotalSellers" resultType="Integer">
+        SELECT count(*)
+        FROM seller s
+                 INNER JOIN user u on
+            s.id_user=u.id_user
+                 INNER JOIN person p on
+            s.id_person=p.id_person
+        WHERE u.id_rol=2
+          and s.status = 1
+          and u.status = 1
+          and p.status = 1
     </select>
     <delete id="deleteSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
         UPDATE seller set

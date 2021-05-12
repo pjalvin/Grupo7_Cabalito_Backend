@@ -65,6 +65,7 @@ public class LoginBl {
     public UserRequest SignIn(UserRequest userRequest, Transaction transaction){
 
         UserRequest userInfo=loginDao.findByEmail(userRequest.getEmail());
+        System.out.println(userInfo);
         if(userInfo!=null){
             if(encoder.matches(userRequest.getPassword(),userInfo.getPassword())){
                 UserRequest userSeller=sellerDao.findByUserId(userInfo.getIdUser());
@@ -86,7 +87,7 @@ public class LoginBl {
     }
     public UserRequest SignInAdmi(UserRequest userRequest, Transaction transaction){
 
-        UserRequest userInfo=loginDao.findByEmail(userRequest.getEmail());
+        UserRequest userInfo=loginDao.findByEmailAdmi(userRequest.getEmail());
         if(userInfo!=null){
             if(encoder.matches(userRequest.getPassword(),userInfo.getPassword())){
                 UserRequest userSeller=sellerDao.findByUserId(userInfo.getIdUser());

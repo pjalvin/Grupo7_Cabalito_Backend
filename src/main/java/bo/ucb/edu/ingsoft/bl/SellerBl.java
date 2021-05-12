@@ -6,6 +6,7 @@ import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dao.UserDao;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
+import bo.ucb.edu.ingsoft.dto.UsuariosAdmiResponse;
 import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
@@ -95,8 +96,12 @@ public class SellerBl {
         return publications;
     }
 
-    public List<SellerRequest> getSellers(){
-        return sellerDao.getSellers();
+    public UsuariosAdmiResponse getSellers(Integer i, Integer n)
+    {
+        UsuariosAdmiResponse usuariosAdmiResponse=new UsuariosAdmiResponse();
+        usuariosAdmiResponse.setSellers(sellerDao.getSellers(i,n));
+        usuariosAdmiResponse.setTotal(sellerDao.getTotalSellers());
+        return usuariosAdmiResponse;
     }
     public void delete(Integer idSeller, Transaction transaction){
         Seller seller=new Seller();

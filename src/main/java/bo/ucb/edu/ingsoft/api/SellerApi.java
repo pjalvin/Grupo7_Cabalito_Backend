@@ -4,6 +4,7 @@ import bo.ucb.edu.ingsoft.bl.SellerBl;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.PublicationViewRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
+import bo.ucb.edu.ingsoft.dto.UsuariosAdmiResponse;
 import bo.ucb.edu.ingsoft.model.Seller;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -72,8 +73,9 @@ public class SellerApi {
     }
 
     @GetMapping(path = "/adm/users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<SellerRequest> getSellers(){
-        return sellerBl.getSellers();
+    public UsuariosAdmiResponse getSellers(@RequestParam(required = true) Integer i,
+                                           @RequestParam(required = true) Integer n){
+        return sellerBl.getSellers(i,n);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
