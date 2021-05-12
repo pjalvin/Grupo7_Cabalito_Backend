@@ -1,9 +1,8 @@
 POST http://localhost:8080/user/signin
 Accept: application/json
 Content-Type: application/json
-
 {
-  "email": "msaffill0@hatena.ne.jp",
+  "email": "sbreydin6@nyu.edu",
   "password": "abc1234"
 }
 
