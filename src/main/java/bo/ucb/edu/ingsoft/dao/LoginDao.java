@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface LoginDao {
     public UserRequest findByEmail(String email);
+    public UserRequest findByEmailAdmi(String email);
 }

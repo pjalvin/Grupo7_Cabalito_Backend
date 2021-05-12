@@ -76,4 +76,13 @@ public class MechanicApi {
         mechanicBl.updateMechanicPlan(transaction,idSeller,idPlan);
     }
 
+    @GetMapping(path = "/adm/mechanics", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<MechanicRequest> getMechanics(){
+        return mechanicBl.getMechanics();
+    }
+
+    @GetMapping(path = "/adm/mechanicShop", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<MechanicRequest> getMechanicShop(){
+        return mechanicBl.getMechanicShop();
+    }
 }

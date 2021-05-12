@@ -109,4 +109,11 @@ public class MechanicBl {
         }
     }
 
+    public List<MechanicRequest> getMechanics(){
+        return mechanicDao.getMechanics();
+    }
+
+    public List<MechanicRequest> getMechanicShop(){
+        return mechanicDao.getMechanicShop();
+    }
 }

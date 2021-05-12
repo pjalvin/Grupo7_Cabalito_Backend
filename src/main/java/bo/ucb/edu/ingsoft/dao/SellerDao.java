@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.dao;
 import bo.ucb.edu.ingsoft.dto.PublicationSimpleRequest;
 import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.dto.UserRequest;
+import bo.ucb.edu.ingsoft.model.Publication;
 import bo.ucb.edu.ingsoft.model.Seller;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -26,4 +27,5 @@ public interface SellerDao {
     public List<PublicationSimpleRequest> publications(Integer idSeller, Integer i, Integer n);
 
     List<SellerRequest> getSellers();
+    public void deleteSeller(Seller seller);
 }

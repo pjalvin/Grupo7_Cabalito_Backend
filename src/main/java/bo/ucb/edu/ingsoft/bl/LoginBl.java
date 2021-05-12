@@ -84,4 +84,26 @@ public class LoginBl {
             throw new SignInFailed("No se encontró al usuario");
         }
     }
+    public UserRequest SignInAdmi(UserRequest userRequest, Transaction transaction){
+
+        UserRequest userInfo=loginDao.findByEmail(userRequest.getEmail());
+        if(userInfo!=null){
+            if(encoder.matches(userRequest.getPassword(),userInfo.getPassword())){
+                UserRequest userSeller=sellerDao.findByUserId(userInfo.getIdUser());
+                userInfo.setIdSeller(userSeller.getIdSeller());
+                userInfo.setPassword("");
+                JWTUtil jwtUtil=new JWTUtil();
+                String token = jwtUtil.getJWTToken(userInfo);
+                userInfo.setToken(token);
+                return userInfo;
+            }
+            else{
+
+                throw new SignInFailed("Credenciales incorrectas");
+            }
+        }
+        else{
+            throw new SignInFailed("No se encontró al usuario");
+        }
+    }
 }

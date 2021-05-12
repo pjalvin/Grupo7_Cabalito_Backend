@@ -1,5 +1,7 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import java.util.Date;
+
 public class MechanicRequest {
     private Integer idMechanic;
     private Integer idCity;
@@ -7,7 +9,10 @@ public class MechanicRequest {
     private String location;
     private String shopName;
     private String shopPhoneNumber;
+    private Integer stars;
+    private Integer starsCount;
     private String verificationPath;
+    private Date dueDatePayment;
 
     public MechanicRequest() {
     }
@@ -60,12 +65,36 @@ public class MechanicRequest {
         this.shopPhoneNumber = shopPhoneNumber;
     }
 
+    public Integer getStars() {
+        return stars;
+    }
+
+    public void setStars(Integer stars) {
+        this.stars = stars;
+    }
+
+    public Integer getStarsCount() {
+        return starsCount;
+    }
+
+    public void setStarsCount(Integer starsCount) {
+        this.starsCount = starsCount;
+    }
+
     public String getVerificationPath() {
         return verificationPath;
     }
 
     public void setVerificationPath(String verificationPath) {
         this.verificationPath = verificationPath;
+    }
+
+    public Date getDueDatePayment() {
+        return dueDatePayment;
+    }
+
+    public void setDueDatePayment(Date dueDatePayment) {
+        this.dueDatePayment = dueDatePayment;
     }
 
     @Override
@@ -77,7 +106,10 @@ public class MechanicRequest {
                 ", location='" + location + '\'' +
                 ", shopName='" + shopName + '\'' +
                 ", shopPhoneNumber='" + shopPhoneNumber + '\'' +
+                ", stars=" + stars +
+                ", starsCount=" + starsCount +
                 ", verificationPath='" + verificationPath + '\'' +
+                ", dueDatePayment=" + dueDatePayment +
                 '}';
     }
 }

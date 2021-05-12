@@ -153,6 +153,16 @@
           and u.status = 1
           and p.status = 1
     </select>
+    <delete id="deleteSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
+        UPDATE seller set
+        status=0,
+        tx_id_user=#{transaction.txIdUser},
+        tx_host=#{transaction.txHost},
+        tx_update=#{transaction.txUpdate}
+        WHERE
+        id_seller=#{idSeller} and
+        status=1
+    </delete>
 
 </mapper>
 
