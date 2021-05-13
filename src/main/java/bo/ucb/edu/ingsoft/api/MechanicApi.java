@@ -85,4 +85,13 @@ public class MechanicApi {
     public List<MechanicRequest> getMechanicShop(){
         return mechanicBl.getMechanicShop();
     }
+
+    @RequestMapping(path="/status",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void updateMechanicStatus(@RequestParam(required = true) Integer status,
+                                     @RequestParam(required = true) Integer idSeller,
+                                     HttpServletRequest request){
+        TransactionUtil transactionUtil = new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        mechanicBl.updateMechanicStatus(transaction,idSeller,status);
+    }
 }

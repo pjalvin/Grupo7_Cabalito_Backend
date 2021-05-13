@@ -116,4 +116,13 @@ public class MechanicBl {
     public List<MechanicRequest> getMechanicShop(){
         return mechanicDao.getMechanicShop();
     }
+
+    public void updateMechanicStatus(Transaction transaction,Integer idSeller,Integer status){
+        Integer idMechanic = mechanicDao.findByMechanicId(idSeller);
+        Mechanic mechanic = new Mechanic();
+        mechanic.setTransaction(transaction);
+        mechanic.setStatus(status);
+        mechanic.setIdMechanic(idMechanic);
+        mechanicDao.updateMechanicStatus(mechanic);
+    }
 }

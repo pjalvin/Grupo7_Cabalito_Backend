@@ -91,6 +91,15 @@
         WHERE id_mechanic = #{idMechanic}
          and status = 1
     </update>
+    <update id="updateMechanicStatus" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        UPDATE mechanic  SET
+            status = #{status},
+            tx_id_user = #{transaction.txIdUser},
+            tx_host = #{transaction.txHost},
+            tx_update = #{transaction.txUpdate}
+        WHERE id_mechanic = #{idMechanic}
+         and status = 2
+    </update>
 
     <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicsMap">
         <result column="idMechanic" property="idMechanic"/>
@@ -121,7 +130,7 @@
         FROM
             mechanic a
         WHERE
-            a.status != 0
+            a.status = 1
     </select>
 
     <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicShopMap">
@@ -153,6 +162,6 @@
         FROM
             mechanic a
         WHERE
-            a.status = 0
+            a.status = 2
     </select>
 </mapper>
