@@ -71,13 +71,13 @@ public class SellerBl {
         return sellerRequest;
     }
     public SellerRequest update(SellerRequest sellerRequest, Transaction transaction){
-        SellerRequest sellerRe = sellerDao.findBySellerId(userUtil.getIdSeller());
         Person person = new Person();
         person.setFirstName(sellerRequest.getFirstName());
         person.setLastName(sellerRequest.getLastName());
         person.setPhoneNumber(sellerRequest.getPhoneNumber());
-        person.setIdPerson(sellerRe.getIdPerson());
+        person.setIdPerson(sellerRequest.getIdPerson());
         person.setTransaction(transaction);
+        System.out.println(person);
 
         personDao.updatePerson(person);
 
@@ -96,34 +96,18 @@ public class SellerBl {
         return publications;
     }
 
-    public UsuariosAdmiResponse getSellers(Integer i, Integer n)
+    public UsuariosAdmiResponse getSellers(Integer i, Integer n,String search)
     {
         UsuariosAdmiResponse usuariosAdmiResponse=new UsuariosAdmiResponse();
-        usuariosAdmiResponse.setSellers(sellerDao.getSellers(i,n));
-        usuariosAdmiResponse.setTotal(sellerDao.getTotalSellers());
+        usuariosAdmiResponse.setSellers(sellerDao.getSellers(i,n,search));
+        usuariosAdmiResponse.setTotal(sellerDao.getTotalSellers(search));
         return usuariosAdmiResponse;
     }
-    public void delete(Integer idSeller, Transaction transaction){
-        Seller seller=new Seller();
-        seller.setStatus(0);
-        seller.setIdSeller(idSeller);
-        seller.setTransaction(transaction);
-        SellerRequest sellerRequest = new SellerRequest();
-        Person person = new Person();
-        User user = new User();
-        sellerRequest = sellerDao.findBySellerId(idSeller);
-        user.setStatus("0");
-        user.setIdUser(sellerRequest.getIdUser());
+    public void delete(Integer idUser, Transaction transaction){
+        User user=new User();
+        user.setIdUser(idUser);
         user.setTransaction(transaction);
-        person.setStatus(0);
-        person.setIdPerson(sellerRequest.getIdPerson());
-        person.setTransaction(transaction);
-        seller.setStatus(0);
-        seller.setIdSeller(idSeller);
-        seller.setTransaction(transaction);
-        userDao.deleteUser(user);
-        personDao.deletePerson(person);
-        sellerDao.deleteSeller(seller);
+        sellerDao.deleteUser(user);
     }
 
 }

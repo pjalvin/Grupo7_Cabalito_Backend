@@ -5,6 +5,7 @@ import bo.ucb.edu.ingsoft.dto.SellerRequest;
 import bo.ucb.edu.ingsoft.dto.UserRequest;
 import bo.ucb.edu.ingsoft.model.Publication;
 import bo.ucb.edu.ingsoft.model.Seller;
+import bo.ucb.edu.ingsoft.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public interface SellerDao {
     public void updateImage(Seller seller);
     public List<PublicationSimpleRequest> publications(Integer idSeller, Integer i, Integer n);
 
-    List<SellerRequest> getSellers(Integer  i, Integer n);
-    Integer getTotalSellers();
-    public void deleteSeller(Seller seller);
+    List<SellerRequest> getSellers(Integer  i, Integer n,String search);
+    Integer getTotalSellers(String search);
+    public void deleteUser(User user);
 }

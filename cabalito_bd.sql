@@ -227,6 +227,8 @@ ALTER TABLE seller ADD CONSTRAINT seller_user FOREIGN KEY seller_user (id_user)
 
 -- End of file.
 ALTER TABLE publication ADD FULLTEXT (title,description);
+ALTER TABLE person ADD FULLTEXT (first_name,last_name);
+ALTER TABLE user ADD FULLTEXT (email);
 -- Insercion de nuevas tablas mechanic, h_mechanic, star
 drop table h_mechanic;
 drop table mechanic;

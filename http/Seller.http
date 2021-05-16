@@ -11,7 +11,8 @@ Content-Type: application/json
 
 GET http://localhost:8080/seller
 Accept: application/json
-Content-Type:
+Content-Type: application/json
+Authorization: Bearer eyJpZFVzZXIiOjM4LCJpZFNlbGxlciI6MzgsImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMTg0Nzk4LCJleHAiOjE2MjEyNzExOTh9._PpJkGP_2yVK1qs-TErEQJ_SavDZGOEr-4vqYw67v-FjNO5XqR4OkFLOL-CWaDT__L4WPQR0lnE0Rp6lYc_apg
 
 ###
 
@@ -86,13 +87,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/seller/adm/users?n=5&i=0
+GET http://localhost:8080/seller/users?n=10&i=0&search=than
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNzcyMzUwLCJleHAiOjE2MjA4NTg3NTB9.sp46rLuT7lweLUTmkEIkZvhyfjwJXC4hBoEGRQYJHN4oiqhrkQyiYE7gCJtl8iLUQUrT7lmS_opOzHm4U93x1Q
+Authorization: Bearer eyJpZFVzZXIiOjM4LCJpZFNlbGxlciI6MzgsImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMTg0Nzk4LCJleHAiOjE2MjEyNzExOTh9._PpJkGP_2yVK1qs-TErEQJ_SavDZGOEr-4vqYw67v-FjNO5XqR4OkFLOL-CWaDT__L4WPQR0lnE0Rp6lYc_apg
 
 ###
-DELETE http://localhost:8080/seller?idSeller=5
+DELETE http://localhost:8080/seller?idUser=5
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNzcyMzUwLCJleHAiOjE2MjA4NTg3NTB9.sp46rLuT7lweLUTmkEIkZvhyfjwJXC4hBoEGRQYJHN4oiqhrkQyiYE7gCJtl8iLUQUrT7lmS_opOzHm4U93x1Q

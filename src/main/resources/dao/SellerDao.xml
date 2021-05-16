@@ -152,6 +152,9 @@
           and s.status = 1
           and u.status = 1
           and p.status = 1
+        <if test="search!=null">
+        AND CONCAT(p.first_name, ' ', p.last_name) LIKE CONCAT('%',#{search}, '%')
+        </if>
         LIMIT #{n} OFFSET #{i}
     </select>
     <select  id="getTotalSellers" resultType="Integer">
@@ -163,17 +166,20 @@
             s.id_person=p.id_person
         WHERE u.id_rol=2
           and s.status = 1
+        <if test="search!=null">
+            AND CONCAT(p.first_name, ' ', p.last_name) LIKE CONCAT('%',#{search}, '%')
+        </if>
           and u.status = 1
           and p.status = 1
     </select>
-    <delete id="deleteSeller" parameterType="bo.ucb.edu.ingsoft.model.Seller">
-        UPDATE seller set
+    <delete id="deleteUser" parameterType="bo.ucb.edu.ingsoft.model.User">
+        UPDATE user set
         status=0,
         tx_id_user=#{transaction.txIdUser},
         tx_host=#{transaction.txHost},
         tx_update=#{transaction.txUpdate}
         WHERE
-        id_seller=#{idSeller} and
+        id_user=#{idUser} and
         status=1
     </delete>
 

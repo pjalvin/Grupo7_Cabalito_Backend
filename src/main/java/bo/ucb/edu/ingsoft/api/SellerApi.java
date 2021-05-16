@@ -72,17 +72,17 @@ public class SellerApi {
         return pubSeller;
     }
 
-    @GetMapping(path = "/adm/users", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public UsuariosAdmiResponse getSellers(@RequestParam(required = true) Integer i,
+                                           @RequestParam(required = false) String search,
                                            @RequestParam(required = true) Integer n){
-        return sellerBl.getSellers(i,n);
+        return sellerBl.getSellers(i,n,search);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String delete(@RequestParam Integer idSeller, HttpServletRequest request) {
+    public void delete(@RequestParam Integer idUser, HttpServletRequest request) {
         TransactionUtil transactionUtil=new TransactionUtil();
         Transaction transaction = transactionUtil.createTransaction(request);
-        sellerBl.delete(idSeller, transaction);
-        return "Usuario eliminada";
+        sellerBl.delete(idUser, transaction);
     }
 }
