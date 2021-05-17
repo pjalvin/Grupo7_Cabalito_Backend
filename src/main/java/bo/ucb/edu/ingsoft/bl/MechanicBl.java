@@ -125,4 +125,14 @@ public class MechanicBl {
         mechanic.setIdMechanic(idMechanic);
         mechanicDao.updateMechanicStatus(mechanic);
     }
+    public void update(MechanicRequest mechanicRequest, Transaction transaction){
+        Integer idMechanic = mechanicDao.findByMechanicId(mechanicRequest.getIdMechanic());
+        Mechanic mechanic = new Mechanic();
+        mechanic.setTransaction(transaction);
+        mechanic.setShopPhoneNumber(mechanicRequest.getShopPhoneNumber());
+        mechanic.setShopName(mechanicRequest.getShopName());
+        mechanic.setLocation(mechanicRequest.getLocation());
+        mechanic.setIdMechanic(idMechanic);
+        mechanicDao.update(mechanic);
+    }
 }

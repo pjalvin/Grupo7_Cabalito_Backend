@@ -94,4 +94,11 @@ public class MechanicApi {
         Transaction transaction = transactionUtil.createTransaction(request);
         mechanicBl.updateMechanicStatus(transaction,idSeller,status);
     }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public MechanicRequest updateMechanic(@RequestBody MechanicRequest mechanicRequest, HttpServletRequest request) {
+        TransactionUtil transactionUtil = new TransactionUtil();
+        Transaction transaction = transactionUtil.createTransaction(request);
+        mechanicBl.update(mechanicRequest, transaction);
+        return mechanicRequest;
+    }
 }

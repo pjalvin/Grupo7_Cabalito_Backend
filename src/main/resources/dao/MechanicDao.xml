@@ -100,6 +100,19 @@
         WHERE id_mechanic = #{idMechanic}
          and status = 2
     </update>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
+        UPDATE mechanic  SET
+            id_city = #{idCity},
+            location = #{location},
+            shop_name = #{shopName},
+            shop_phone_number =#{shopPhoneNumber},
+            status = #{status},
+            tx_id_user = #{transaction.txIdUser},
+            tx_host = #{transaction.txHost},
+            tx_update = #{transaction.txUpdate}
+        WHERE id_mechanic = #{idMechanic}
+         and status = 1
+    </update>
 
     <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicsMap">
         <result column="idMechanic" property="idMechanic"/>

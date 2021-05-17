@@ -30,6 +30,8 @@ public interface MechanicDao {
 
     public void updateMechanicStatus(Mechanic mechanic);
 
+    public MechanicRequest update(Mechanic mechanic);
+
     List<MechanicRequest> getMechanics();
     List<MechanicRequest> getMechanicShop();
 }
