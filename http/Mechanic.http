@@ -30,16 +30,16 @@ Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhd
 
 
 ###
-GET http://localhost:8080/mechanic/adm/mechanics?n=10&i=0&search=local
+GET http://localhost:8080/mechanic/adm/mechanics?n=1&i=0&search=sho
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNzcyMzUwLCJleHAiOjE2MjA4NTg3NTB9.sp46rLuT7lweLUTmkEIkZvhyfjwJXC4hBoEGRQYJHN4oiqhrkQyiYE7gCJtl8iLUQUrT7lmS_opOzHm4U93x1Q
+Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYxMTY3LCJleHAiOjE2MjE0NDc1Njd9.vOXoVPZCvwbnAW8LahJSJtYUzf2f7SfDCNeK8JTxnKs8NHyyDos4AUWiF_1bUIouhDo9OMBkSUl4qqK111AHxg
 
 ###
-GET http://localhost:8080/mechanic/adm/mechanicShop?n=10&i=0&search=local
+GET http://localhost:8080/mechanic/adm/mechanicShop?n=10&i=0&search=sho
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwODc3OTQ4LCJleHAiOjE2MjA5NjQzNDh9.NJl9-IefD5DrrgahRkf1wlWT6wY_nVoFvJh4mt4Lc9oMLJgqIW3YRoLGrYCRoawViGLbWiP5VVF5zLlxynMwIA
+Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYxMTY3LCJleHAiOjE2MjE0NDc1Njd9.vOXoVPZCvwbnAW8LahJSJtYUzf2f7SfDCNeK8JTxnKs8NHyyDos4AUWiF_1bUIouhDo9OMBkSUl4qqK111AHxg
 
 ###
 PUT http://localhost:8080/mechanic/status?status=1&idSeller=33

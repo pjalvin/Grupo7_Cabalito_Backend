@@ -148,7 +148,7 @@
             a.status = 1
             and s.status = 1
         <if test="search!=null">
-            and a.shopName like CONCAT('%',#{search},'%')
+            and a.shop_name like CONCAT('%',#{search},'%')
         </if>
         LIMIT #{n} OFFSET #{i}
     </select>
@@ -161,7 +161,7 @@
         m.status = 1
         and s.status = 1
         <if test="search!=null">
-            and m.shopName like CONCAT('%',#{search},'%')
+            and m.shop_name like CONCAT('%',#{search},'%')
         </if>
     </select>
     <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicShopMap">
@@ -198,7 +198,7 @@
         a.status = 2
         and s.status = 1
         <if test="search!=null">
-            and a.shopName like CONCAT('%',#{search},'%')
+            and a.shop_name like CONCAT('%',#{search},'%')
         </if>
         LIMIT #{n} OFFSET #{i}
     </select>
@@ -211,7 +211,7 @@
         m.status = 2
         and s.status = 1
         <if test="search!=null">
-            and m.shopName like CONCAT('%',#{search},'%')
+            and m.shop_name like CONCAT('%',#{search},'%')
         </if>
     </select>
 </mapper>
