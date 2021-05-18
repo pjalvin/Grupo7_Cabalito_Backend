@@ -9,12 +9,21 @@ public class MechanicRequest {
     private String location;
     private String shopName;
     private String shopPhoneNumber;
+    private Integer status;
     private Integer stars;
     private Integer starsCount;
     private String verificationPath;
     private Date dueDatePayment;
 
     public MechanicRequest() {
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getIdMechanic() {

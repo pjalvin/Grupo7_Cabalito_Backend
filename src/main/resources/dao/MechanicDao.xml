@@ -98,7 +98,6 @@
             tx_host = #{transaction.txHost},
             tx_update = #{transaction.txUpdate}
         WHERE id_mechanic = #{idMechanic}
-         and status = 2
     </update>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Mechanic">
         UPDATE mechanic  SET
@@ -184,6 +183,7 @@
             a.location as location,
             a.shop_name as shopName,
             a.shop_phone_number as shopPhoneNumber,
+            a.status as status,
             a.stars as stars,
             a.stars_count as starsCount,
             a.verification_path as verificationPath,

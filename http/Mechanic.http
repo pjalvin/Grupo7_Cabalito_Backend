@@ -30,7 +30,7 @@ Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhd
 
 
 ###
-GET http://localhost:8080/mechanic/adm/mechanics?n=1&i=0&search=sho
+GET http://localhost:8080/mechanic/adm/mechanics?n=100&i=0
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
@@ -40,7 +40,7 @@ Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
 ###
-PUT http://localhost:8080/mechanic/status?status=1&idSeller=33
+PUT http://localhost:8080/mechanic/status?status=0&idSeller=4
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
