@@ -105,8 +105,7 @@
             id_city = #{idCity},
             location = #{location},
             shop_name = #{shopName},
-            shop_phone_number =#{shopPhoneNumber},
-            status = #{status},
+            shop_phone_number = #{shopPhoneNumber},
             tx_id_user = #{transaction.txIdUser},
             tx_host = #{transaction.txHost},
             tx_update = #{transaction.txUpdate}

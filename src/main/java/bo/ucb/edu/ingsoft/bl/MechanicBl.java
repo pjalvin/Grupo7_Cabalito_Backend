@@ -135,6 +135,7 @@ public class MechanicBl {
         Integer idMechanic = mechanicDao.findByMechanicId(mechanicRequest.getIdMechanic());
         Mechanic mechanic = new Mechanic();
         mechanic.setTransaction(transaction);
+        mechanic.setIdCity(mechanicRequest.getIdCity());
         mechanic.setShopPhoneNumber(mechanicRequest.getShopPhoneNumber());
         mechanic.setShopName(mechanicRequest.getShopName());
         mechanic.setLocation(mechanicRequest.getLocation());

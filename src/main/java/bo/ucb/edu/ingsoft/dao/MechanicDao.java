@@ -30,7 +30,7 @@ public interface MechanicDao {
 
     public void updateMechanicStatus(Mechanic mechanic);
 
-    public MechanicRequest update(Mechanic mechanic);
+    public void update(Mechanic mechanic);
 
     List<MechanicRequest> getMechanics(Integer i, Integer n, String search);
     Integer getTotalMechanics(String search);

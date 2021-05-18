@@ -19,7 +19,7 @@ Content-Type: application/json
 GET http://localhost:8080/mechanic/seller
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwNTExMTYyLCJleHAiOjE2MjA1OTc1NjJ9.euLznRaKFmMXR0KbnR84WblslW-QLPcf3tFWiwFLqt64IDoqFyXCRWWY5FhkkBZjJYPpHmLajf5N6Ma6IJGOmA
+Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
 
 ###
 
@@ -33,17 +33,29 @@ Authorization: Bearer eyJpZFVzZXIiOjEsImlkU2VsbGVyIjoxLCJhbGciOiJIUzUxMiJ9.eyJhd
 GET http://localhost:8080/mechanic/adm/mechanics?n=1&i=0&search=sho
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYxMTY3LCJleHAiOjE2MjE0NDc1Njd9.vOXoVPZCvwbnAW8LahJSJtYUzf2f7SfDCNeK8JTxnKs8NHyyDos4AUWiF_1bUIouhDo9OMBkSUl4qqK111AHxg
-
+Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
 ###
-GET http://localhost:8080/mechanic/adm/mechanicShop?n=10&i=0&search=sho
+GET http://localhost:8080/mechanic/adm/mechanicShop?n=10&i=0
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjMsImlkU2VsbGVyIjozLCJhbGciOiJIUzUxMiJ9.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYxMTY3LCJleHAiOjE2MjE0NDc1Njd9.vOXoVPZCvwbnAW8LahJSJtYUzf2f7SfDCNeK8JTxnKs8NHyyDos4AUWiF_1bUIouhDo9OMBkSUl4qqK111AHxg
-
+Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
 ###
 PUT http://localhost:8080/mechanic/status?status=1&idSeller=33
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIwODc3OTQ4LCJleHAiOjE2MjA5NjQzNDh9.NJl9-IefD5DrrgahRkf1wlWT6wY_nVoFvJh4mt4Lc9oMLJgqIW3YRoLGrYCRoawViGLbWiP5VVF5zLlxynMwIA
+Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
+###
+PUT http://localhost:8080/mechanic
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJpZFVzZXIiOjE5LCJpZFNlbGxlciI6MTksImFsZyI6IkhTNTEyIn0.eyJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjIxMzYwNTgyLCJleHAiOjE2MjE0NDY5ODJ9.4k7xSFm4IwihQ68vkWiNFw2ZCu8A12So58nvnMgEK22S3hwHAs-gu9pgq4dh6UYSzm4yLL9M6uC9uOROqytOQQ
 
+{
+  "idMechanic": 4,
+  "idCity": 2,
+  "location": "Miraflores",
+  "shopName": "Rapidos",
+  "shopPhoneNumber": "123456",
+  "status": 1
+}
+###
