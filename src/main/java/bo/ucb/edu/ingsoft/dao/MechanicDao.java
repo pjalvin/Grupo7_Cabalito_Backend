@@ -32,6 +32,8 @@ public interface MechanicDao {
 
     public MechanicRequest update(Mechanic mechanic);
 
-    List<MechanicRequest> getMechanics();
-    List<MechanicRequest> getMechanicShop();
+    List<MechanicRequest> getMechanics(Integer i, Integer n, String search);
+    Integer getTotalMechanics(String search);
+    List<MechanicRequest> getMechanicShop(Integer i, Integer n, String search);
+    Integer getTotalMechanicShop(String search);
 }

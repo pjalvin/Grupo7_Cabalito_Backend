@@ -77,13 +77,17 @@ public class MechanicApi {
     }
 
     @GetMapping(path = "/adm/mechanics", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<MechanicRequest> getMechanics(){
-        return mechanicBl.getMechanics();
+    public MechanicAdminResponse getMechanics(@RequestParam(required = true) Integer i,
+                                              @RequestParam(required = false) String search,
+                                              @RequestParam(required = true) Integer n){
+        return mechanicBl.getMechanics(i,n,search);
     }
 
     @GetMapping(path = "/adm/mechanicShop", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<MechanicRequest> getMechanicShop(){
-        return mechanicBl.getMechanicShop();
+    public MechanicAdminResponse getMechanicShop(@RequestParam(required = true) Integer i,
+                                                 @RequestParam(required = false) String search,
+                                                 @RequestParam(required = true) Integer n){
+        return mechanicBl.getMechanicShop(i,n,search);
     }
 
     @RequestMapping(path="/status",method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)

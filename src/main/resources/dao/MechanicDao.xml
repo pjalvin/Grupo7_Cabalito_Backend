@@ -142,10 +142,28 @@
             a.due_date_payment as dueDatePayment
         FROM
             mechanic a
+                INNER JOIN seller s on
+            a.id_seller = s.id_seller
         WHERE
             a.status = 1
+            and s.status = 1
+        <if test="search!=null">
+            and a.shopName like CONCAT('%',#{search},'%')
+        </if>
+        LIMIT #{n} OFFSET #{i}
     </select>
-
+    <select  id="getTotalMechanics" resultType="Integer">
+        SELECT count(*)
+        FROM mechanic m
+        INNER JOIN seller s on
+        m.id_seller=s.id_seller
+        WHERE
+        m.status = 1
+        and s.status = 1
+        <if test="search!=null">
+            and m.shopName like CONCAT('%',#{search},'%')
+        </if>
+    </select>
     <resultMap type="bo.ucb.edu.ingsoft.dto.MechanicRequest" id="getMechanicShopMap">
         <result column="idMechanic" property="idMechanic"/>
         <result column="idCity" property="idCity"/>
@@ -173,8 +191,27 @@
             a.status as status,
             a.due_date_payment as dueDatePayment
         FROM
-            mechanic a
+        mechanic a
+        INNER JOIN seller s on
+        a.id_seller = s.id_seller
         WHERE
-            a.status = 2
+        a.status = 2
+        and s.status = 1
+        <if test="search!=null">
+            and a.shopName like CONCAT('%',#{search},'%')
+        </if>
+        LIMIT #{n} OFFSET #{i}
+    </select>
+    <select  id="getTotalMechanicShop" resultType="Integer">
+        SELECT count(*)
+        FROM mechanic m
+        INNER JOIN seller s on
+        m.id_seller=s.id_seller
+        WHERE
+        m.status = 2
+        and s.status = 1
+        <if test="search!=null">
+            and m.shopName like CONCAT('%',#{search},'%')
+        </if>
     </select>
 </mapper>

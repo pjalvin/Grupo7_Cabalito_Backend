@@ -109,12 +109,18 @@ public class MechanicBl {
         }
     }
 
-    public List<MechanicRequest> getMechanics(){
-        return mechanicDao.getMechanics();
+    public MechanicAdminResponse getMechanics(Integer i, Integer n, String search){
+        MechanicAdminResponse mechanicAdminResponse = new MechanicAdminResponse();
+        mechanicAdminResponse.setMechanics(mechanicDao.getMechanics(i,n,search));
+        mechanicAdminResponse.setTotal(mechanicDao.getTotalMechanics(search));
+        return mechanicAdminResponse;
     }
 
-    public List<MechanicRequest> getMechanicShop(){
-        return mechanicDao.getMechanicShop();
+    public MechanicAdminResponse getMechanicShop(Integer i, Integer n, String search){
+        MechanicAdminResponse mechanicAdminResponse = new MechanicAdminResponse();
+        mechanicAdminResponse.setMechanics(mechanicDao.getMechanicShop(i,n,search));
+        mechanicAdminResponse.setTotal(mechanicDao.getTotalMechanicShop(search));
+        return mechanicAdminResponse;
     }
 
     public void updateMechanicStatus(Transaction transaction,Integer idSeller,Integer status){
